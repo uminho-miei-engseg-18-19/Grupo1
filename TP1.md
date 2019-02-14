@@ -110,7 +110,7 @@ Deste modo podemos ver que, o nosso _output_ já não se limita só a digítos e
 
 #### Pergunta P2.1
 
-A
+**A**
 
 Para dividir o segredo *"Agora temos um segredo extremamente confidencial"* em 8 partes, com quorom de 5 começou-se por gerar a chave privada, usando o seguinte comando:
 
@@ -162,7 +162,7 @@ Component: 8
 eyJhbGciOiAiUlMyNTYifQ.eyJvYmplY3QiOiBbIjgtOTFiN2FjY2E4YzE5OGU0NDBlY2M5YmYyM2ViY2ViZGVmYTE2NGY1YmMyNjhhNGEyNDg1MWRlYWY0ODNmNWQ0MGY5ZjgwMTI4ZWI3NmUzYTA3MjMwNGNmMDQwMTk3MjY3IiwgIjEiLCA1LCA4LCAiYmY1N2FlMzNlYjg1ZWY5YWNlY2QzMDQ0MDZkZmE4OGJjZDQ5YWU5YzM3YzljN2I2Y2E5NTM5ZjhkMWFkMWZkYyJdfQ.XyXI85O-DbdF5ID1WiZmnKBB-952wbbm9impvtLsIb2LPPTs49IbMtZcjhsZXdzdXaOBi6pc6pgbjp8zMpaDPRnOgkxU3emzYK_wQl9x2dU_sMn1zBmEZG3A58_ARvDnCWduGATBi8Q7p7u56K0tEanGlfqCa3hnvj72UsgV938
 ```
 
-B
+**B**
 
 Para recuperar o segredo houve a necessidade de construir o certificado associado à chave gerada, para isso efetuou-se o seguinte comando:
 
