@@ -101,7 +101,7 @@ python generateSecret-app.py 1024
 
 ```
 
-Deste modo podemos ver que o nosso _output_ já não se limita apenas a digítos e letras.
+Deste modo podemos ver que o nosso _output_ já não se limita apenas a dígitos e letras.
 
 
 
