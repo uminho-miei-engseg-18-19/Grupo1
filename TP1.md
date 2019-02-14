@@ -201,8 +201,9 @@ Component 4: eyJhbGciOiAiUlMyNTYifQ.eyJvYmplY3QiOiBbIjctNzM3MzE4MWJmMjc5NGZkMzA1
 Component 5: eyJhbGciOiAiUlMyNTYifQ.eyJvYmplY3QiOiBbIjgtOTFiN2FjY2E4YzE5OGU0NDBlY2M5YmYyM2ViY2ViZGVmYTE2NGY1YmMyNjhhNGEyNDg1MWRlYWY0ODNmNWQ0MGY5ZjgwMTI4ZWI3NmUzYTA3MjMwNGNmMDQwMTk3MjY3IiwgIjEiLCA1LCA4LCAiYmY1N2FlMzNlYjg1ZWY5YWNlY2QzMDQ0MDZkZmE4OGJjZDQ5YWU5YzM3YzljN2I2Y2E5NTM5ZjhkMWFkMWZkYyJdfQ.XyXI85O-DbdF5ID1WiZmnKBB-952wbbm9impvtLsIb2LPPTs49IbMtZcjhsZXdzdXaOBi6pc6pgbjp8zMpaDPRnOgkxU3emzYK_wQl9x2dU_sMn1zBmEZG3A58_ARvDnCWduGATBi8Q7p7u56K0tEanGlfqCa3hnvj72UsgV938
 Recovered secret: Agora temos um segredo extremamente confidencialuser@CSI:~/Aulas/Aula2/ShamirSharing$
 ```
-Analisando os programas *recoverSecretFromComponents-app.py* e *recoverSecretFromAllComponents-app.py* são notórias algumas diferenças. Enquanto o programa *recoverSecretFromComponents-app.py* para reconstruir o segredo necessita exatamente(**pelo menos**) da quantidade definida como sendo o *quorum*, o programa *recoverSecretFromAllComponents-app.py* para reconstruir o segredo necessita de todas as partes.
+Analisando os programas *recoverSecretFromComponents-app.py* e *recoverSecretFromAllComponents-app.py* são notórias algumas diferenças. Enquanto o programa *recoverSecretFromComponents-app.py* para reconstruir o segredo necessita pelo menos da quantidade definida como sendo o *quorum*, o programa *recoverSecretFromAllComponents-app.py* para reconstruir o segredo necessita de todas as partes, ou seja, mesmo o _quorum_ sendo de 5 se der apenas 5 chaves distintas a mensagem não será recuperada.
 Deste modo, recorre-se a cada um dos programas, dependendo do objetivo. Ou seja, recorre-se ao *recoverSecretFromAllComponents-app.py* quando se pretende uma maior segurança, uma vez que, neste caso, é necessário a junção de todas as partes para reconstruir o segredo.
+
 
 
 ### 3\. Authenticated Encryption
