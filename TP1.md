@@ -72,7 +72,6 @@ JR2uivKXiFjQ4raZfCnRrugxL0CuJYcXAL3hRXWUK4OAebG3ySH1sRHjIpAKFpvHg9cgbNojw4FxOSfh
 ```
 
 **2.**
-
 Para não limitar o _output_ a letras e dígitos é necessário fazer uma alteração ao código, por exemplo basta adicionar `string.punctuation` de maneira a que c possa também ler símbolos de pontuação. Ou seja o código passa a ser o seguinte:
 
 ```python
