@@ -11,7 +11,7 @@ Executando os diferentes comandos no terminal observamos que quando executamos a
 
 Relativamente ao comando: `head -c 1024 /dev/urandom | openssl enc -base64`, este permite-nos obter de modo quase instantâneo 1024 _bytes_ pseudoaleatórios, isto deve-se ao facto de quando o `/dev/urandom` não tem entropia suficiente para gerar o _output_ de tamanho pretendido, ele gera uma _seed_ com a entropia disponível, e a partir da mesma usa um **PRNG** para gerar o restante output.
 
-
+Na seguinte tabela são apresentados os tempos que cada comando demorou até ser concluído
 
 | Comando  | Tempo execução |
 | ------------- | ------------- |
