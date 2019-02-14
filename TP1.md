@@ -39,7 +39,7 @@ ocorre em tempos muito semelhantes e no caso de `/dev/random` o tempo de execuç
 
 #### Pergunta P1.3
 
-1.
+**1.**
 Analisando o ficheiro *generateSecret-app.py* baseado no módulo _eVotUM.Cripto_ observa-se que este para gerar os _bytes_ pseudoaleatórios recorre ao módulo *shamirsecret.py*.
 
 ```python
@@ -71,7 +71,7 @@ python generateSecret-app.py 1024
 JR2uivKXiFjQ4raZfCnRrugxL0CuJYcXAL3hRXWUK4OAebG3ySH1sRHjIpAKFpvHg9cgbNojw4FxOSfhcacFPup7QTMeys0UJR8pUNM3I1JIQghol7UhRg6o7HU0e1fsUcJ98E9FCbKaPGymvinyvIMCyGFwXhSvR0AfMOHCCrKzQ1UtSsP4o3vuw0jg8et1J0W5U7ofCDIw5owzeLFzcaJ7Q0EhP8DoKQyHlGd5P9Uj50W4w5BBZAQU7D31WPAH0EQbYjuRKsqX1KT1ajtvqAYpXob4EYZRfVz6A4d7S6yVk72OZChYS2QVmQjiyjOC27wfFi1YxhkEBe1k8lV5VA0pSBoasMsxwpxMXNgO5NdVvlImZNZyi4U2YncYGUTH4CB6VcF1GjQP5ab4GiAPsTlQBUzwWZzPIj1yAcWIyjCqT3dsN3YCXOBqx6KPSxYmfcQaGDgp5xBDbkyKtATkakT2MwwXStQGkf2sQktEHCJAqNDuy09C2xNBUZFQeElOpFXH0fDCFtIA7saZzCE6DDhThl4t5BNDq3Xmv6ERep7sxAwikabSlNJASepy90qA9b8GUQOnsbYBXdGSu96CRz9S8B876ZzD4fETH3csQc1h7bBxH8sO44iRAWoiAslwuh2OxJoEXgM724DI6OdJjSb19RBbP7D9LfCgLUUslSr2GDG4k9d405TJZtdNBEUqzYXmcYBsGH4PiG5hZrO1bZ6eDYPsWXJ9nG8PWX7qbkBWCyI3f19cRx0oqG85Is2V1olW3y65xQRRqIzhZMIgK2ROG6eo2NoWXLb3WA3ZH9QjfZjZwqfnJ3ZudpswX90SHiRewAJ8oNGqmUDPwNd5gtex2nX71NUDH4fSNirDNZOsDWjDXMYU9btCa6SL7EXju35TChV9EOe0B6m7GOtuv40g186jEWLCyYz8VhgLRBgJXxOVJUwPz8r5I0mUASWaeRbje3xNSXSOhLj33FOR5e8XhZxkUhhuu6X2ita08jwLeOw5FVs2N4OS96wFtrXJ
 ```
 
-2.
+**2.**
 
 Para não limitar o _output_ a letras e dígitos é necessário fazer uma alteração ao código, por exemplo basta adicionar `string.punctuation` de maneira a que c possa também ler símbolos de pontuação. Ou seja o código passa a ser o seguinte:
 
