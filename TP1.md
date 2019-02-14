@@ -7,14 +7,14 @@
 Para a resolução desta pergunta é necessário começar por definir a diferença entre /dev/random e /dev/urandom.
 
 
-Executando os diferentes comandos no terminal observamos que quando executamos as 3 primeiras instruções o tempo de resposta aumenta consoante o número de bits que pretendemos gerar. Isto acontece, uma vez que a entropia necessária para gerar 1024 bytes pseudoaleatórios é superior à entropia necessária para se gerarem 32 ou 64 bytes aleatórios.
-	Relativamente ao comando: head -c 1024 /dev/urandom | openssl enc -base64, este permite-nos obter de modo, quase, instantâneo 1024 bytes pseudoaleatórios, isto deve-se ao facto de o urandom ????.
+Executando os diferentes comandos no terminal observamos que quando executamos as 3 primeiras instruções o tempo de resposta aumenta consoante o número de bytes que pretendemos gerar. Isto acontece, uma vez que a entropia necessária para gerar 1024 bytes pseudoaleatórios é superior à entropia necessária para se gerarem 32 ou 64 bytes aleatórios. É também de notar que enquanto não existir entropia suficiente para gerar o output, o mesmo fica a aguardar até que seja gerada entropia suficiente para concluír o output.
+	Relativamente ao comando: head -c 1024 /dev/urandom | openssl enc -base64, este permite-nos obter de modo quase instantâneo 1024 bytes pseudoaleatórios, isto deve-se ao facto de quando o /dev/urandom não tem entropia suficiente para gerar o output de tamanho pretendido, ele gera uma seed com a entropia disponível, e a partir da mesma usa um PRNG para gerar o restante output.
 
 
 
 | Comando  | Tempo execução |
 | ------------- | ------------- |
-| head -c 32 /dev/random \| openssl enc -base64 | 0.005s 
+| head -c 32 /dev/random \| openssl enc -base64 | 0.005s
 | head -c 64 /dev/random \| openssl enc -base64 | 0.006s
 | head -c 1024 /dev/random \| openssl enc -base64 |
 | head -c 1024 /dev/urandom \| openssl enc -base64 | 0.006s
@@ -27,7 +27,7 @@ A package haveged é um gerador de números pseudoaleatórios, tendo sido criada
 - `head -c 1024 /dev/random | openssl enc -base64`
 - `head -c 1024 /dev/urandom | openssl enc -base64`
 
-ocorre em tempos muito semelhantes. 
+ocorre em tempos muito semelhantes e no caso de /dev/random o tempo de execução é bastante mais baixo.
 
 
 | Comando  | Tempo execução |
@@ -39,10 +39,8 @@ ocorre em tempos muito semelhantes.
 
 #### Pergunta P1.3
 
-1. Analise e execute esse programa de geração de segredo aleatório e indique o motivo do output apenas conter letras e dígitos (não contendo por exemplo caracteres de pontuação ou outros).
-
-Analisando o ficheiro *generateSecret-app.py* baseado no módulo eVotUM.Cripto observa-se que este para gerar os bytes pseudoaleatórios recorre ao módulo *shamirsecret.py*. Analisando-o observa-se que para gerar a sequência de bytes este inicia um ciclo que será executado enquanto o número de bytes não for atingido. Neste ciclo é criada uma variável *s* que é construída apartir do módulo *utils*, que faz uso do comando `urandom`. A variável *s* contém caracteres imprimíveis e caracteres não imprimíveis. Assim, o output do programa *generateSecret-app.py* contém apenas letras e dígitos, uma vez que os únicos caracteres aceites para a contrução do output têm de pertencer a
-
+1.
+Analisando o ficheiro *generateSecret-app.py* baseado no módulo eVotUM.Cripto observa-se que este para gerar os bytes pseudoaleatórios recorre ao módulo *shamirsecret.py*.
 
 ```python
 def generateSecret(secretLength):
@@ -61,8 +59,9 @@ def generateSecret(secretLength):
             if (c in (string.ascii_letters + string.digits) and l < secretLength): # printable character
                 l += 1
                 secret += c
-    return secret 
+    return secret
 ```
+Analisando-o observa-se que para gerar a sequência de bytes este inicia um ciclo que será executado enquanto o número de bytes não for atingido. Neste ciclo é criada uma variável s que é construída apartir do módulo utils, que faz uso do comando urandom. A variável s contém caracteres imprimíveis e caracteres não imprimíveis. Assim, o output do programa generateSecret-app.py contém apenas letras e dígitos, uma vez que os únicos caracteres aceites para a contrução do output têm de pertencer a
 
 
 Executando o programa obtém-se o seguinte output:
@@ -72,9 +71,40 @@ python generateSecret-app.py 1024
 JR2uivKXiFjQ4raZfCnRrugxL0CuJYcXAL3hRXWUK4OAebG3ySH1sRHjIpAKFpvHg9cgbNojw4FxOSfhcacFPup7QTMeys0UJR8pUNM3I1JIQghol7UhRg6o7HU0e1fsUcJ98E9FCbKaPGymvinyvIMCyGFwXhSvR0AfMOHCCrKzQ1UtSsP4o3vuw0jg8et1J0W5U7ofCDIw5owzeLFzcaJ7Q0EhP8DoKQyHlGd5P9Uj50W4w5BBZAQU7D31WPAH0EQbYjuRKsqX1KT1ajtvqAYpXob4EYZRfVz6A4d7S6yVk72OZChYS2QVmQjiyjOC27wfFi1YxhkEBe1k8lV5VA0pSBoasMsxwpxMXNgO5NdVvlImZNZyi4U2YncYGUTH4CB6VcF1GjQP5ab4GiAPsTlQBUzwWZzPIj1yAcWIyjCqT3dsN3YCXOBqx6KPSxYmfcQaGDgp5xBDbkyKtATkakT2MwwXStQGkf2sQktEHCJAqNDuy09C2xNBUZFQeElOpFXH0fDCFtIA7saZzCE6DDhThl4t5BNDq3Xmv6ERep7sxAwikabSlNJASepy90qA9b8GUQOnsbYBXdGSu96CRz9S8B876ZzD4fETH3csQc1h7bBxH8sO44iRAWoiAslwuh2OxJoEXgM724DI6OdJjSb19RBbP7D9LfCgLUUslSr2GDG4k9d405TJZtdNBEUqzYXmcYBsGH4PiG5hZrO1bZ6eDYPsWXJ9nG8PWX7qbkBWCyI3f19cRx0oqG85Is2V1olW3y65xQRRqIzhZMIgK2ROG6eo2NoWXLb3WA3ZH9QjfZjZwqfnJ3ZudpswX90SHiRewAJ8oNGqmUDPwNd5gtex2nX71NUDH4fSNirDNZOsDWjDXMYU9btCa6SL7EXju35TChV9EOe0B6m7GOtuv40g186jEWLCyYz8VhgLRBgJXxOVJUwPz8r5I0mUASWaeRbje3xNSXSOhLj33FOR5e8XhZxkUhhuu6X2ita08jwLeOw5FVs2N4OS96wFtrXJ
 ```
 
-2. O que teria de fazer para não limitar o output a letras e dígitos?
+2.
 
-Para não limitar o output a letras e dígitos é necessário fazer uma alteração ao código
+Para não limitar o output a letras e dígitos é necessário fazer uma alteração ao código, por exemplo basta adicionar `string.punctuation` de maneira a que c possa também ler símbolos de pontuação. Ou seja o código passa a ser o seguinte:
+
+```python
+def generateSecret(secretLength):
+    """
+    This function generates a random string with secretLength characters (ascii_letters and digits).
+    Args:
+        secretLength (int): number of characters of the string
+    Returns:
+        Random string with secretLength characters (ascii_letters and digits)
+    """
+    l = 0
+    secret = ""
+    while (l < secretLength):
+        s = utils.generateRandomData(secretLength - l)
+        for c in s:
+            if (c in (string.ascii_letters + string.digits + string.punctuation) and l < secretLength): # printable character
+                l += 1
+                secret += c
+    return secret
+```
+
+Executando de novo programa com as alterações realizados obtém-se o seguinte output:
+
+```python
+python generateSecret-app.py 1024
+:1`3/nb2;ITKrBIEi*A{4UEl,1u"@xiifR,%NSkEH{WDOVjIpJ![o36{dOe5rx&N[nmKwi=|R^l4=_IO*Fc[}1D1v6[0G)K*zOLb<~Vud-Y2g9x<KA2,rV;O2>#amkBK909rd:C)XXQ"Wljog[xGgll2JUk#`9KXeXC`N*)(QVX`qdAd[3P&RlyH!vmzl?yZf<%oq6",}WhXb%N4p8F/.Eejh2^]B/Oo,j70K'`QPl$Sp{;oU^!eE01JYchGE*tE<Y/>H<2JUy"Jj6^kzZ}"1Ob8qBJp\W-q[f<V?Gslq7*)MbPt7=GmhSD7^Yrr,M|~>H('anH6jUb5"0S<^~A?^EUioB\a5,1"ovG6Q),.tM-M'mnc)gWr!-hml/E%9HXdo<8R-t90)!ej>{fJ])0~q1UjtwUQ]e/n"lXLI5MB802]<1%b@m.G_T7#L\Hn~K+mpi0[NFcw@>;f_*kSI|zJx!ObW}cfqIo_.Y6i[4_|n~YZ^^m?a]/^dR+Q>oKH8G]2~D`U5AqN:W/JGQU(H9Zko?re]cY|$BlveX\+dJFB\=u}JD|=1A|r=W.Ol.F>&M<J^+OYkY<JaV!zt9@=}..PRMF)\p>JIS5LgRG_z]pOVcB6b?A[DVBNPdPF+}e[Kh&j+,&6B6:g)h>A/]oroRR5:I|8N3]Fl{X:')K,O-8PWNR7.4SI\^;BC(f6b]mzX~IA1k6u?/L@6S<4IX1)9{IJBkbNZ05KZpHf|De1j[[cnfEn0t}01%%+>ZKL_0\#6wC/$A8v)|\ii1Y7.<jsEsN)bvn+MCYbgk_83W{mrU,7M?Gg?CJ$Z2x-rEC8Exx&^Ze)MN,!)1_U(_*i".7PD2,&<0];lS8%[yV%^,*SHAF?<To)`&ls5]$kPx!:"QlEt{;!9f[vUtZVkt.[+=}HI"y=kq1mYu({1E(U#eC!=Ed-F-[,VT1cCo~Ht2qq393C3MU+:SS"gg6Ua3?J6.6<^B_^E@2E5FJzu#=?S[-<Q0zA4[)A|c1ILJt!uV/"tDe%#d]F
+
+```
+
+Deste modo podemos ver já temos muitos mais tipos de caracteres.
+
 
 
 ### 2\. Partilha/Divisão de segredo (Secret Sharing/Splitting)
