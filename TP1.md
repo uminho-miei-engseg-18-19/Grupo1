@@ -23,12 +23,12 @@ Na seguinte tabela são apresentados os tempos que cada comando demorou até ser
 
 #### Pergunta P1.2
 
-A package haveged é um gerador de números pseudoaleatórios, tendo sido criada com o objetivo de colmatar as condições de baixa entropia no dispositivo aleatório do Linux. Deste modo, após a instalação da package haveged e executando os comandos propostos, observou-se que a geração de 1024 bytes aleatórios recorrendo aos comandos:
+A package _haveged_ é um gerador de números pseudoaleatórios, tendo sido criada com o objetivo de colmatar as condições de baixa entropia no dispositivo aleatório do _Linux_. Deste modo, após a instalação da package _haveged_ e executando os comandos propostos, observou-se que a geração de 1024 _bytes_ aleatórios recorrendo aos comandos:
 
 - `head -c 1024 /dev/random | openssl enc -base64`
 - `head -c 1024 /dev/urandom | openssl enc -base64`
 
-ocorre em tempos muito semelhantes e no caso de /dev/random o tempo de execução é bastante mais baixo.
+ocorre em tempos muito semelhantes e no caso de `/dev/random` o tempo de execução é bastante mais baixo.
 
 
 | Comando  | Tempo execução |
@@ -36,12 +36,11 @@ ocorre em tempos muito semelhantes e no caso de /dev/random o tempo de execuçã
 |head -c 1024 /dev/random \| openssl enc -base64 | 0.007s
 |head -c 1024 /dev/urandom \| openssl enc -base64 | 0.006s
 
-<http://www.issihosts.com/haveged/index.html>
 
 #### Pergunta P1.3
 
 1.
-Analisando o ficheiro *generateSecret-app.py* baseado no módulo eVotUM.Cripto observa-se que este para gerar os bytes pseudoaleatórios recorre ao módulo *shamirsecret.py*.
+Analisando o ficheiro *generateSecret-app.py* baseado no módulo _eVotUM.Cripto_ observa-se que este para gerar os _bytes_ pseudoaleatórios recorre ao módulo *shamirsecret.py*.
 
 ```python
 def generateSecret(secretLength):
@@ -62,10 +61,10 @@ def generateSecret(secretLength):
                 secret += c
     return secret
 ```
-Analisando-o observa-se que para gerar a sequência de bytes este inicia um ciclo que será executado enquanto o número de bytes não for atingido. Neste ciclo é criada uma variável s que é construída apartir do módulo utils, que faz uso do comando urandom. A variável s contém caracteres imprimíveis e caracteres não imprimíveis. Assim, o output do programa generateSecret-app.py contém apenas letras e dígitos, uma vez que os únicos caracteres aceites para a contrução do output têm de pertencer a
+Analisando o código relativo ao método _generateSecret()_ observa-se que para gerar a sequência de _bytes_ este inicia um ciclo que será executado enquanto o número de _bytes_ não for atingido. Neste ciclo é criada uma variável _s_ que é construída apartir do módulo _utils_, que faz uso do comando _urandom_. A variável _s_ contém caracteres imprimíveis e caracteres não imprimíveis. Assim, o _output_ do programa _generateSecret-app.py_ contém apenas letras e dígitos, uma vez que os únicos caracteres aceites para a contrução do _output_ têm de pertencer a `string.ascii_letters` ou `string.digits`.
 
 
-Executando o programa obtém-se o seguinte output:
+Executando o programa obtém-se o seguinte _output_:
 
 ```python
 python generateSecret-app.py 1024
@@ -74,7 +73,7 @@ JR2uivKXiFjQ4raZfCnRrugxL0CuJYcXAL3hRXWUK4OAebG3ySH1sRHjIpAKFpvHg9cgbNojw4FxOSfh
 
 2.
 
-Para não limitar o output a letras e dígitos é necessário fazer uma alteração ao código, por exemplo basta adicionar `string.punctuation` de maneira a que c possa também ler símbolos de pontuação. Ou seja o código passa a ser o seguinte:
+Para não limitar o _output_ a letras e dígitos é necessário fazer uma alteração ao código, por exemplo basta adicionar `string.punctuation` de maneira a que c possa também ler símbolos de pontuação. Ou seja o código passa a ser o seguinte:
 
 ```python
 def generateSecret(secretLength):
@@ -96,7 +95,7 @@ def generateSecret(secretLength):
     return secret
 ```
 
-Executando de novo programa com as alterações realizados obtém-se o seguinte output:
+Executando de novo programa com as alterações realizados obtém-se o seguinte _output_:
 
 ```python
 python generateSecret-app.py 1024
@@ -104,7 +103,7 @@ python generateSecret-app.py 1024
 
 ```
 
-Deste modo podemos ver já temos muitos mais tipos de caracteres.
+Deste modo podemos ver que, o nosso _output_ já não se limita só a digítos e letras
 
 
 
@@ -223,3 +222,4 @@ CRYPTAS-PrimeSign Qualified Root CA
 Encrypt-then-MAC
 
 ### Referências
+<http://www.issihosts.com/haveged/index.html>
