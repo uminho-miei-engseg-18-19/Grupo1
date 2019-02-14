@@ -17,7 +17,7 @@ Na seguinte tabela são apresentados os tempos que cada comando demorou até ser
 | ------------- | ------------- |
 | head -c 32 /dev/random \| openssl enc -base64 | 0.005s
 | head -c 64 /dev/random \| openssl enc -base64 | 0.006s
-| head -c 1024 /dev/random \| openssl enc -base64 |
+| head -c 1024 /dev/random \| openssl enc -base64 | 5min 54.626s
 | head -c 1024 /dev/urandom \| openssl enc -base64 | 0.006s
 
 
