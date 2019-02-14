@@ -1,4 +1,4 @@
-## Exercícios
+# Trabalho Prático 1 - Resolução
 
 ### 1\. Números aleatórios/pseudoaleatórios
 
@@ -7,11 +7,11 @@
 Para a resolução desta pergunta é necessário começar por definir a diferença entre `/dev/random` e `/dev/urandom`.
 
 
-Executando os diferentes comandos no terminal observamos que quando executamos as 3 primeiras instruções o tempo de resposta aumenta consoante o número de _bytes_ que pretendemos gerar. Isto acontece, uma vez que a entropia necessária para gerar 1024 _bytes_ pseudoaleatórios é superior à entropia necessária para se gerarem 32 ou 64 _bytes_ pseudoaleatórios. É também de notar que enquanto não existir entropia suficiente para gerar o _output_, o mesmo fica a aguardar até que seja gerada entropia suficiente para concluír o mesmo.
+Executando os diferentes comandos no terminal observamos que quando executamos as 3 primeiras instruções o tempo de resposta aumenta consoante o número de _bytes_ que pretendemos gerar. Isto acontece, uma vez que a entropia necessária para gerar 1024 _bytes_ pseudoaleatórios é superior à entropia necessária para se gerarem 32 ou 64 _bytes_ pseudoaleatórios. É também de notar que enquanto não existir entropia suficiente para gerar o _output_, o mesmo fica a aguardar até que seja gerada entropia suficiente para concluir o mesmo.
 
-Relativamente ao comando: `head -c 1024 /dev/urandom | openssl enc -base64`, este permite-nos obter de modo quase instantâneo 1024 _bytes_ pseudoaleatórios, isto deve-se ao facto de quando o `/dev/urandom` não tem entropia suficiente para gerar o _output_ de tamanho pretendido, ele gera uma _seed_ com a entropia disponível, e a partir da mesma usa um **PRNG** para gerar o restante output.
+Relativamente ao comando: `head -c 1024 /dev/urandom | openssl enc -base64`, este permite-nos obter de modo quase instantâneo 1024 _bytes_ pseudoaleatórios, isto deve-se ao facto de quando o `/dev/urandom` não tem entropia suficiente para gerar o _output_ de tamanho pretendido, gerar uma _seed_ com a entropia disponível, e a partir da mesma usa um **PRNG** para gerar o restante output.
 
-Na seguinte tabela são apresentados os tempos que cada comando demorou até ser concluído
+Na seguinte tabela são apresentados os tempos que cada comando demorou até ser concluído.
 
 | Comando  | Tempo execução |
 | ------------- | ------------- |
@@ -28,8 +28,7 @@ A package _haveged_ é um gerador de números pseudoaleatórios, tendo sido cria
 - `head -c 1024 /dev/random | openssl enc -base64`
 - `head -c 1024 /dev/urandom | openssl enc -base64`
 
-ocorre em tempos muito semelhantes e no caso de `/dev/random` o tempo de execução é bastante mais baixo.
-
+ocorre em tempos muito semelhantes e, no caso, de `/dev/random` o tempo de execução é bastante mais baixo.
 
 | Comando  | Tempo execução |
 | ------------- | ------------- |
@@ -40,7 +39,7 @@ ocorre em tempos muito semelhantes e no caso de `/dev/random` o tempo de execuç
 #### Pergunta P1.3
 
 **1.**
-Analisando o ficheiro *generateSecret-app.py* baseado no módulo _eVotUM.Cripto_ observa-se que este para gerar os _bytes_ pseudoaleatórios recorre ao módulo *shamirsecret.py*.
+Analisando o ficheiro *generateSecret-app.py* baseado no módulo _eVotUM.Cripto_ observa-se que este, para gerar os _bytes_ pseudoaleatórios, recorre ao módulo *shamirsecret.py*.
 
 ```python
 def generateSecret(secretLength):
@@ -61,7 +60,7 @@ def generateSecret(secretLength):
                 secret += c
     return secret
 ```
-Analisando o código relativo ao método _generateSecret()_ observa-se que para gerar a sequência de _bytes_ este inicia um ciclo que será executado enquanto o número de _bytes_ não for atingido. Neste ciclo é criada uma variável _s_ que é construída apartir do módulo _utils_, que faz uso do comando _urandom_. A variável _s_ contém caracteres imprimíveis e caracteres não imprimíveis. Assim, o _output_ do programa _generateSecret-app.py_ contém apenas letras e dígitos, uma vez que os únicos caracteres aceites para a contrução do _output_ têm de pertencer a `string.ascii_letters` ou `string.digits`.
+Analisando o código relativo ao método _generateSecret()_, observa-se que para gerar a sequência de _bytes_ este inicia um ciclo que será executado enquanto o número de _bytes_ não for atingido. Neste ciclo é criada uma variável _s_ que é construída apartir do módulo _utils_, que faz uso do comando _urandom_. A variável _s_ contém caracteres imprimíveis e caracteres não imprimíveis. Assim, o _output_ do programa _generateSecret-app.py_ contém apenas letras e dígitos, uma vez que os únicos caracteres aceites para a contrução do _output_ têm de pertencer a `string.ascii_letters` ou `string.digits`.
 
 
 Executando o programa obtém-se o seguinte _output_:
@@ -72,7 +71,7 @@ JR2uivKXiFjQ4raZfCnRrugxL0CuJYcXAL3hRXWUK4OAebG3ySH1sRHjIpAKFpvHg9cgbNojw4FxOSfh
 ```
 
 **2.**
-Para não limitar o _output_ a letras e dígitos é necessário fazer uma alteração ao código, por exemplo basta adicionar `string.punctuation` de maneira a que c possa também ler símbolos de pontuação. Ou seja o código passa a ser o seguinte:
+Para não limitar o _output_ a letras e dígitos é necessário fazer uma alteração ao código. Por exemplo, basta adicionar `string.punctuation` de maneira a que _c_ possa também ter símbolos de pontuação. Neste caso, o código passa a ser o seguinte:
 
 ```python
 def generateSecret(secretLength):
@@ -94,7 +93,7 @@ def generateSecret(secretLength):
     return secret
 ```
 
-Executando de novo programa com as alterações realizados obtém-se o seguinte _output_:
+Executando o programa alterado obtém-se o seguinte _output_:
 
 ```python
 python generateSecret-app.py 1024
@@ -102,7 +101,7 @@ python generateSecret-app.py 1024
 
 ```
 
-Deste modo podemos ver que, o nosso _output_ já não se limita só a digítos e letras
+Deste modo podemos ver que o nosso _output_ já não se limita apenas a digítos e letras.
 
 
 
@@ -110,8 +109,7 @@ Deste modo podemos ver que, o nosso _output_ já não se limita só a digítos e
 
 #### Pergunta P2.1
 
-**A**
-
+**A.**
 Para dividir o segredo *"Agora temos um segredo extremamente confidencial"* em 8 partes, com quorom de 5 começou-se por gerar a chave privada, usando o seguinte comando:
 
 ```
@@ -232,6 +230,16 @@ Component 4: eyJhbGciOiAiUlMyNTYifQ.eyJvYmplY3QiOiBbIjUtYjczM2Y2NjgwMDlhNDAxMDdk
 Component 5: eyJhbGciOiAiUlMyNTYifQ.eyJvYmplY3QiOiBbIjQtZGI4MGY0Zjc1ZDI2ODlmM2NlZjA2OGExNTQwOWQ3YjgzODZmMDY4NzMxMGJkOTk3NzRmMWU0YmIyN2NiNzY2YTM1YmJjZWU2YWI3Y2QzNDllMDhkMDkwZmYxY2ExMzU3IiwgIjEiLCA1LCA4LCAiYWQyNWRkNWIyYTgyZTBjZjQ4ZTY0YzQzNzg0MjdmNzQ5N2QzYTM2YmM3M2I0ZjExNDM3YmVlMmI5OGNiOGZlNiJdfQ.gXHDyHvFWmXMlghPnFoLdHeFVOzITotnhUqsydY26jGs3-1IlM5yXeNshGJGG18OdZV13PhHCGRhxU_S3R1y1h0CThpeA89pEroobS5G1_dPoGR3fhfUHiV3GcNtj2X902R2EO3AL8kY61OeW4rMVlko4FxjjtXxG8-m22DG-00
 Error: Invalid number of components
 ```
+
+Vejamos um exemplo prático de quando se recorre a um ou a outro programa:
+
+**Cenário**
+
+> Pense-se nas transferências efetuadas nos bancos:
+> + if valortransf<valor elevado determinado pelo banco:
+> + recorre-se a recoverSecretFromComponents-app.py
+> + else:
+> + recorre-se a recoverSecretFromAllComponents-app.py
 
 
 ### 3\. Authenticated Encryption
