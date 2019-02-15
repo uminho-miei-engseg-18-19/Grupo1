@@ -246,8 +246,14 @@ Vejamos um exemplo prático de quando se recorre a um ou a outro programa:
 
 #### Pergunta P3.1
 
-PrimeSign GmbH
-CRYPTAS-PrimeSign Qualified Root CA
+Encrypt then Mac
+
+### 4\. Algoritmos e Tamanhos de Chave
+
+#### Pergunta P4.1
+
+Começamos pela EC *PrimeSign GmbH* que emite o certificado *CRYPTAS-PrimeSign Qualified Root CA*.
+Ao instalar o Certificado, surge uma informação sobre o certificado não ser fidedigno por não se encontrar no arquivo de autoridades de certificação de raíz fidedigna.
 
 | Algoritmo de Assinatura | Tamanho da Chave Pública |
 | ------------- | ------------- |
@@ -255,7 +261,16 @@ CRYPTAS-PrimeSign Qualified Root CA
 
 
 
-Encrypt-then-MAC
+Acabamos com a EC *Swisscom Root CA 4* cujo certificado emitido nas condições pedidas é para a entidade *Swisscom Diamant EU CA 4*.
+Tem a finalidade de garantir identidade de computadores remotos e de proteger alterações feitas aos softwares.
+Uma vez mais, verificámos o seguinte:
+
+| Algoritmo de Assinatura | Tamanho da Ch. Pública |
+| ------------- | ------------- |
+| Sha256 with RSA encryption | 2048 bits |
+
+
+Atualmente, para garantir um nível suficientemente seguro, recomenda-se o uso do algoritmo RSA com uma chave de tamanho acima dos 3072 bits, como está tabelado, principalmente se pretendemos que o certificado seja seguro durante um período de tempo longo. Tendo em conta que o segundo certificado abordado nesta questão tem uma data de validade de 10 anos, o tamanho da sua chave não garante uma segurança forte a longo prazo.
 
 ### Referências
 <http://www.issihosts.com/haveged/index.html>
