@@ -262,7 +262,7 @@ Vejamos, de seguida, um exemplo prático de quando se recorre a um ou a outro pr
 
 #### Pergunta P4.1
 
-Começamos pela EC *PrimeSign GmbH* que emite o certificado *CRYPTAS-PrimeSign Qualified Root CA*.
+Começamos pela EC *[PrimeSign GmbH](https://webgate.ec.europa.eu/tl-browser/#/tl/AT/5)* que emite o certificado *[CRYPTAS-PrimeSign Qualified Root CA](https://webgate.ec.europa.eu/tl-browser/#/tl/AT/5/0)*.
 Ao instalar o Certificado, surge uma informação sobre o certificado não ser fidedigno por não se encontrar no arquivo de autoridades de certificação de raíz fidedigna.
 
 | Algoritmo de Assinatura | Tamanho da Chave Pública |
@@ -271,7 +271,7 @@ Ao instalar o Certificado, surge uma informação sobre o certificado não ser f
 
 
 
-Acabamos com a EC *Swisscom Root CA 4* cujo certificado emitido nas condições pedidas é para a entidade *Swisscom Diamant EU CA 4*.
+Acabamos com a EC *[Swisscom Root CA 4](https://webgate.ec.europa.eu/tl-browser/#/tl/AT/6)* cujo certificado emitido nas condições pedidas é para a entidade *[Swisscom Diamant EU CA 4](https://webgate.ec.europa.eu/tl-browser/#/tl/AT/6/0)*.
 Tem a finalidade de garantir identidade de computadores remotos e de proteger alterações feitas aos softwares.
 Uma vez mais, verificámos o seguinte:
 
