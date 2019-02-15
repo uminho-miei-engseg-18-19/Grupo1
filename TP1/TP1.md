@@ -43,7 +43,7 @@ A package _haveged_ é um gerador de números pseudoaleatórios, tendo sido cria
 - `head -c 1024 /dev/random | openssl enc -base64`
 - `head -c 1024 /dev/urandom | openssl enc -base64`
 
-ocorre em tempos muito semelhantes e, no caso, de `/dev/random` o tempo de execução é bastante mais baixo.
+ocorre em tempos muito semelhantes e, no caso, de `/dev/random` o tempo de execução é bastante mais baixo; isto deve-se ao facto de quando o dispositivo `/dev/random` é executado existir entropia suficiente para a geração dos 1024 bytes aleatórios, entropia essa gerada pela package _haveged_.
 
 | Comando  | Tempo execução |
 | ------------- | ------------- |
@@ -305,3 +305,4 @@ Atualmente, para garantir um nível suficientemente seguro, recomenda-se o uso d
 
 ### Referências
 <http://www.issihosts.com/haveged/index.html>
+<https://myonlineusb.wordpress.com/2011/06/10/what-is-the-difference-between-devrandom-and-devurandom/>
