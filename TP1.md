@@ -110,7 +110,16 @@ Deste modo podemos ver que o nosso _output_ já não se limita apenas a dígitos
 #### Pergunta P2.1
 
 **A.**
-Para dividir o segredo *"Agora temos um segredo extremamente confidencial"* em 8 partes, com quorom de 5 começou-se por gerar a chave privada, usando o seguinte comando:
+Comecemos por analisar os ficheiros _createSharedSecret-app.py_, _recoverSecretFromComponents-app.py_ e _recoverSecretFromAllComponents-app.py_.
+
+O ficheiro _createSharedSecret-app.py_ é utilizado para fazer a divisão de um determinado segredo por um grupo de entidades, a cada uma das quais é entregue uma parte de um “código” que, quando junto (na totalidade ou em parte), permitem reconstruir o segredo. Este programa aceita como input:
+
+>o número de partes em que quer dividir o segredo;
+>o número de partes necessárias para reconstruir o segredo;
+>o identificador do segredo;
+>a chave privada em base 64.
+
+Percebido o modo como este programa funciona, efetue-se a divisão do segredo *"Agora temos um segredo extremamente confidencial"* em 8 partes, com quorom de 5. Para isso, começou-se por gerar a chave privada, usando o seguinte comando:
 
 ```
 openssl genrsa -aes128 -out key.pem 1024
@@ -136,7 +145,7 @@ CdEkvnWjq/49fyKd4vbEY3NcViWsT3fce5Vhh3TzOI5trZ1r4XTlRaKKfqef11sP
 -----END RSA PRIVATE KEY-----
 ```
 
-Uma vez gerada a chave, procedeu-se à divisão do segredo:
+Uma vez gerada a chave, procedeu-se à divisão do segredo propriamente dita:
 
 ```
 user@CSI:~/Aulas/Aula2/ShamirSharing$ python createSharedSecret-app.py 8 5 1 key.pem
@@ -159,10 +168,10 @@ eyJhbGciOiAiUlMyNTYifQ.eyJvYmplY3QiOiBbIjctNzM3MzE4MWJmMjc5NGZkMzA1ZDRmZTI0NmQ4Y
 Component: 8
 eyJhbGciOiAiUlMyNTYifQ.eyJvYmplY3QiOiBbIjgtOTFiN2FjY2E4YzE5OGU0NDBlY2M5YmYyM2ViY2ViZGVmYTE2NGY1YmMyNjhhNGEyNDg1MWRlYWY0ODNmNWQ0MGY5ZjgwMTI4ZWI3NmUzYTA3MjMwNGNmMDQwMTk3MjY3IiwgIjEiLCA1LCA4LCAiYmY1N2FlMzNlYjg1ZWY5YWNlY2QzMDQ0MDZkZmE4OGJjZDQ5YWU5YzM3YzljN2I2Y2E5NTM5ZjhkMWFkMWZkYyJdfQ.XyXI85O-DbdF5ID1WiZmnKBB-952wbbm9impvtLsIb2LPPTs49IbMtZcjhsZXdzdXaOBi6pc6pgbjp8zMpaDPRnOgkxU3emzYK_wQl9x2dU_sMn1zBmEZG3A58_ARvDnCWduGATBi8Q7p7u56K0tEanGlfqCa3hnvj72UsgV938
 ```
+Relativamente aos ficheiros _recoverSecretFromComponents-app.py_ e _recoverSecretFromAllComponents-app.py_, estes têm como principal objetivo reconstruir o segredo, no entanto, a sua utilização apresenta algumas diferenças. Com o intuito de perceber em que diferem estes dois programas é necessário executá-los para que, a partir dos _outputs_, seja possível tirar as conclusões pretendidas. Proceda-se então à resolução da alínea _B_.
 
 **B**
-
-Para recuperar o segredo houve a necessidade de construir o certificado associado à chave gerada, para isso efetuou-se o seguinte comando:
+Antes de se proceder à execução dos programas acima mencionados, comece-se por construir o certificado associado à chave gerada. Este certificado servirá de auxílio na recuperação do segredo. Assim, para construir o certificado associado à chave privada criada, executou-se o seguinte comando:
 
 ```
 openssl req -key key.pem -new -x509 -days 365 -out key.cert
@@ -186,9 +195,9 @@ rEt+dCBwm2NL8ga8peTS
 -----END CERTIFICATE-----
 ```
 
-Vejamos agora a diferença entre utilizar o programa *recoverSecretFromAllComponents-app.py* e o *recoverSecretFromComponents-app.py*.
+Após a criação do certificado já é possível recuperar o segredo, para isso irá recorrer-se à execução dos programas _recoverSecretFromAllComponents-app.py_ e o _recoverSecretFromComponents-app.py_. Deste modo, será também possível compreender a diferença entre cada um deles.
 
-Usando o *recoverSecretFromComponents-app.py*, obteve-se:
+Comece-se por executar o _recoverSecretFromComponents-app.py_.
 
 ```
 user@CSI:~/Aulas/Aula2/ShamirSharing$ python recoverSecretFromComponents-app.py 5 1 key.cert
@@ -199,7 +208,8 @@ Component 4: eyJhbGciOiAiUlMyNTYifQ.eyJvYmplY3QiOiBbIjctNzM3MzE4MWJmMjc5NGZkMzA1
 Component 5: eyJhbGciOiAiUlMyNTYifQ.eyJvYmplY3QiOiBbIjgtOTFiN2FjY2E4YzE5OGU0NDBlY2M5YmYyM2ViY2ViZGVmYTE2NGY1YmMyNjhhNGEyNDg1MWRlYWY0ODNmNWQ0MGY5ZjgwMTI4ZWI3NmUzYTA3MjMwNGNmMDQwMTk3MjY3IiwgIjEiLCA1LCA4LCAiYmY1N2FlMzNlYjg1ZWY5YWNlY2QzMDQ0MDZkZmE4OGJjZDQ5YWU5YzM3YzljN2I2Y2E5NTM5ZjhkMWFkMWZkYyJdfQ.XyXI85O-DbdF5ID1WiZmnKBB-952wbbm9impvtLsIb2LPPTs49IbMtZcjhsZXdzdXaOBi6pc6pgbjp8zMpaDPRnOgkxU3emzYK_wQl9x2dU_sMn1zBmEZG3A58_ARvDnCWduGATBi8Q7p7u56K0tEanGlfqCa3hnvj72UsgV938
 Recovered secret: Agora temos um segredo extremamente confidencialuser@CSI:~/Aulas/Aula2/ShamirSharing$
 ```
-Usando o *recoverSecretFromAllComponents-app.py*, obteve-se:
+
+Execute-se agora o *recoverSecretFromAllComponents-app.py*.
 
 ```
 user@CSI:~/Aulas/Aula2/ShamirSharing$ python recoverSecretFromAllComponents-app.py 8 1 key.cert
@@ -214,12 +224,7 @@ Component 8: eyJhbGciOiAiUlMyNTYifQ.eyJvYmplY3QiOiBbIjgtOTFiN2FjY2E4YzE5OGU0NDBl
 Recovered secret: Agora temos um segredo extremamente confidencial
 ```
 
-Analisando os programas *recoverSecretFromComponents-app.py* e *recoverSecretFromAllComponents-app.py* são notórias algumas diferenças. Enquanto o programa *recoverSecretFromComponents-app.py* para reconstruir o segredo necessita pelo menos da quantidade definida como sendo o *quorum*, o programa *recoverSecretFromAllComponents-app.py* para reconstruir o segredo necessita de todas as partes, ou seja, mesmo o _quorum_ sendo de 5 se der apenas 5 chaves distintas a mensagem não será recuperada.
-Deste modo, recorre-se a cada um dos programas, dependendo do objetivo. Ou seja, recorre-se ao *recoverSecretFromAllComponents-app.py* quando se pretende uma maior segurança, uma vez que, neste caso, é necessário a junção de todas as partes para reconstruir o segredo.
-
-O seguinte exemplo ilustra que o programa *recoverSecretFromAllComponents-app.py* para recuperar o segredo necessita que se junte o número total de partes pelo qual o segredo foi dividido, não sendo possível recuperar o segredo se apenas se juntarem as partes relativas ao quorum.
-
-Vejamos:
+Com o intuito de perceber melhor a diferença entre os programas acima executados, efetuou-se o seguinte exemplo.
 
 ```
 user@CSI:~/Aulas/Aula2/ShamirSharing$ python recoverSecretFromAllComponents-app.py 5 1 key.cert
@@ -231,7 +236,13 @@ Component 5: eyJhbGciOiAiUlMyNTYifQ.eyJvYmplY3QiOiBbIjQtZGI4MGY0Zjc1ZDI2ODlmM2Nl
 Error: Invalid number of components
 ```
 
-Vejamos um exemplo prático de quando se recorre a um ou a outro programa:
+Este exemplo permite concluir que o programa *recoverSecretFromAllComponents-app.py* para recuperar o segredo necessita que se junte o número de partes pelo qual o segredo foi dividido, não sendo possível recuperar o segredo se apenas se juntarem as partes relativas ao quorum.
+
+Assim, após a execução e análise dos programas *recoverSecretFromComponents-app.py* e *recoverSecretFromAllComponents-app.py* é então possível indicar qual a diferença entre ambos. Enquanto o programa *recoverSecretFromComponents-app.py* para reconstruir o segredo necessita, pelo menos, da quantidade definida como sendo o *quorum*, o programa *recoverSecretFromAllComponents-app.py* para reconstruir o segredo necessita de todas as partes, ou seja, mesmo o _quorum_ sendo de 5 se der apenas 5 chaves distintas o segredo não será recuperado.
+
+Tendo em conta a diferença existente é então importante referir em que situações poderá ser necessário utilizar *recoverSecretFromAllComponents-app.py* em vez de *recoverSecretFromComponents-app.py*. Uma vez que os esquemas de partilha/divisão de segredo permitem alcançar altos níveis de confidencialidade e confiabilidade, de acordo com as necessidades do segredo em causa, a utilização do programa *recoverSecretFromAllComponents-app.py* em vez de *recoverSecretFromComponents-app.py* prevalece-rá quando se pretender uma confidencialidade e confiabilidade quase absoluta, uma vez que, neste caso, é necessário a junção de todas as partes para reconstruir o segredo.
+
+Vejamos, de seguida, um exemplo prático de quando se recorre a um ou a outro programa:
 
 **Cenário**
 
@@ -241,12 +252,11 @@ Vejamos um exemplo prático de quando se recorre a um ou a outro programa:
 > + else:
 > + recorre-se a recoverSecretFromAllComponents-app.py
 
-
 ### 3\. Authenticated Encryption
 
 #### Pergunta P3.1
 
-Encrypt then Mac
+
 
 ### 4\. Algoritmos e Tamanhos de Chave
 
