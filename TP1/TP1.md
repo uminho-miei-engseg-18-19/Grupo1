@@ -246,11 +246,15 @@ Vejamos, de seguida, um exemplo prático de quando se recorre a um ou a outro pr
 
 **Cenário**
 
-> Pense-se nas transferências efetuadas nos bancos:
-> + if valortransf<valor elevado determinado pelo banco:
-> + recorre-se a recoverSecretFromComponents-app.py
-> + else:
-> + recorre-se a recoverSecretFromAllComponents-app.py
+> Pense-se nas transferências efetuadas nos bancos em que a direção é composta por 8 elementos:
+> + def valor_a_transferir(valortransf):
+> +     valor= valor estipulado pelo banco como sendo elevado
+> +     if valortransf<valor:
+> +         return recoverSecretFromComponents-app.py 5 uid chave
+> +     else:
+> +         return recoverSecretFromAllComponents-app.py 8 uid chave
+
+Deste modo se a transferência tiver um valor muito elevado será necessário a participação de todos os elementos, caso contrário apenas a parte estipulada pelo quorum.
 
 ### 3\. Authenticated Encryption
 
