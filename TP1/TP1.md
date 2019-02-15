@@ -2,12 +2,27 @@
 
 ### 1\. Números aleatórios/pseudoaleatórios
 
+Existem 2 "fontes" distintas para a geração de números aleatórios. Estes podem ser gerados através de:
+>Fenómenos físicos;
+
+>Algoritmos computacionais.
+
+Nos fenómenos físicos expectáveis de serem aleatórios há a necessidade de, por vezes, serem compensados possíveis desvios no processo de medição. Note-se que a velocidade a que a entropia pode ser colhida a partir de fontes naturais é dependente dos fenómenos físicos subjacentes medidos. Fontes de ocorrência natural de “verdadeira” entropia dizem-se bloqueadas até que exista entropia suficiente para satisfazer o pedido de números aleatórios; como é o caso do dispositivo _/dev/random_ que bloqueia até ser recolhida entropia suficiente do ambiente.
+
+Por outro lado, os algoritmos computacionais produzem longas sequências de resultados aparentemente aleatórios, mas estes são completamente determinados por um valor inicial denominado de semente ou chave. Assim, este tipo de “fonte” de números aleatórios é designada por geradores de números pseudoaleatórios, não podendo ser visto como um “verdadeiro” gerador de números aleatórios, no seu sentido mais puro. No entanto, geradores de números pseudoaleatórios cuidadosamente desenhados e implementados podem ser credenciados para fins criptográficos. Note-se ainda que estes tipos de geradores não dependem normalmente de fontes naturais de entropia; portanto, tratam-se de geradores que não são limitados por taxas de entropia de eventos externos, como é o caso do dispositivo _dev/urandom_, podendo, periodicamente, obter sementes de fontes naturais.
+
 #### Pergunta P1.1
 
 Para a resolução desta pergunta é necessário começar por definir a diferença entre `/dev/random` e `/dev/urandom`.
 
+`/dev/random` e `/dev/urandom` são dispositivos de caracteres especiais presentes no Linux. Estes dispositivos fornecem uma interface para o gerador de números aleatórios do _kernel_, interface esta que reúne entropia através de fenómenos físicos ou de algoritmos computacionais, sendo a partir desta entropia que os números aleatórios são gerados.
 
-Executando os diferentes comandos no terminal observamos que quando executamos as 3 primeiras instruções o tempo de resposta aumenta consoante o número de _bytes_ que pretendemos gerar. Isto acontece, uma vez que a entropia necessária para gerar 1024 _bytes_ pseudoaleatórios é superior à entropia necessária para se gerarem 32 ou 64 _bytes_ pseudoaleatórios. É também de notar que enquanto não existir entropia suficiente para gerar o _output_, o mesmo fica a aguardar até que seja gerada entropia suficiente para concluir o mesmo.
+Vejamos agora a diferança entre os dispositivos:
+> **`/dev/random`** - este apenas retorna bytes aleatórios da entropia existente, sendo que, se não existir entropia suficiente a leitura deste dispositivo é bloqueada até que se reúna a entropia necessária para a geração de uma aleatoriedade de alta qualidade.
+
+> **`/dev/urandom`** - este limita-se apenas a retornar os bytes aleatórios que foram pedidos, no entanto, se não existir entropia suficiente, este recorrerá a algoritmos computacionais que lhe permitem gerar os bytes aleatórios pretendidos a partir de uma determinada semente. Ou seja, neste caso, a operação nunca é interrompida, pelo que os valores são vulneráveis a ataques criptográficos teóricos.
+
+Assim, executando os diferentes comandos no terminal observamos que quando executamos as 3 primeiras instruções o tempo de resposta aumenta consoante o número de _bytes_ que pretendemos gerar. Isto acontece, uma vez que a entropia necessária para gerar 1024 _bytes_ pseudoaleatórios é superior à entropia necessária para se gerarem 32 ou 64 _bytes_ pseudoaleatórios. É também de notar que enquanto não existir entropia suficiente para gerar o _output_, o mesmo fica a aguardar até que seja gerada entropia suficiente para concluir o mesmo.
 
 Relativamente ao comando: `head -c 1024 /dev/urandom | openssl enc -base64`, este permite-nos obter de modo quase instantâneo 1024 _bytes_ pseudoaleatórios, isto deve-se ao facto de quando o `/dev/urandom` não tem entropia suficiente para gerar o _output_ de tamanho pretendido, gera uma _seed_ com a entropia disponível, e a partir da mesma usa um **PRNG** para gerar o restante output.
 
@@ -256,7 +271,7 @@ def valor_a_transferir(valortransf):
         return recoverSecretFromAllComponents-app.py 8 uid chave
 ```
 
-Deste modo se a transferência tiver um valor muito elevado será necessário a participação de todos os elementos, caso contrário apenas a parte estipulada pelo quorum.
+Deste modo se a transferência tiver um valor muito elevado será necessário a participação de todos os elementos, caso contrário, apenas a parte estipulada pelo quorum.
 
 ### 3\. Authenticated Encryption
 
