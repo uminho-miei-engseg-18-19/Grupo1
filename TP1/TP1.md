@@ -9,7 +9,7 @@ Para a resolução desta pergunta é necessário começar por definir a diferen�
 
 Executando os diferentes comandos no terminal observamos que quando executamos as 3 primeiras instruções o tempo de resposta aumenta consoante o número de _bytes_ que pretendemos gerar. Isto acontece, uma vez que a entropia necessária para gerar 1024 _bytes_ pseudoaleatórios é superior à entropia necessária para se gerarem 32 ou 64 _bytes_ pseudoaleatórios. É também de notar que enquanto não existir entropia suficiente para gerar o _output_, o mesmo fica a aguardar até que seja gerada entropia suficiente para concluir o mesmo.
 
-Relativamente ao comando: `head -c 1024 /dev/urandom | openssl enc -base64`, este permite-nos obter de modo quase instantâneo 1024 _bytes_ pseudoaleatórios, isto deve-se ao facto de quando o `/dev/urandom` não tem entropia suficiente para gerar o _output_ de tamanho pretendido, gerar uma _seed_ com a entropia disponível, e a partir da mesma usa um **PRNG** para gerar o restante output.
+Relativamente ao comando: `head -c 1024 /dev/urandom | openssl enc -base64`, este permite-nos obter de modo quase instantâneo 1024 _bytes_ pseudoaleatórios, isto deve-se ao facto de quando o `/dev/urandom` não tem entropia suficiente para gerar o _output_ de tamanho pretendido, gera uma _seed_ com a entropia disponível, e a partir da mesma usa um **PRNG** para gerar o restante output.
 
 Na seguinte tabela são apresentados os tempos que cada comando demorou até ser concluído.
 
