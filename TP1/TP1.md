@@ -338,7 +338,6 @@ Para a resolução desta pergunta foi necessário consultar o site https://webga
 ##### PrimeSign GmbH
 
 Começamos pela EC *[PrimeSign GmbH](https://webgate.ec.europa.eu/tl-browser/#/tl/AT/5)* que emite o certificado *[CRYPTAS-PrimeSign Qualified Root CA](https://webgate.ec.europa.eu/tl-browser/#/tl/AT/5/0)*.
-Ao instalar o Certificado, surge uma informação sobre o certificado não ser fidedigno por não se encontrar no arquivo de autoridades de certificação de raiz fidedigna.
 
 Seguindo as instruções dadas na nota 2 obtém-se a seguinte informação do certificado *CRYPTAS-PrimeSign Qualified Root CA*:
 
@@ -557,10 +556,6 @@ Uma vez mais, verificámos o seguinte:
 Uma vez que o certificado é válido até 18 Maio de 2027 e que a chave pública utilizada é o RSA com 2048 bits, tendo como referência as recomendações apresentadas na aula teórica, conclui-se que este certificado, segundo algumas recomendações é adequado. No entanto, segundo a recomendação BSI (Alemanha) a chave deveria apresentar um tamanho de 3000 bits. 
 
 Ainda assim, pode concluir-se que o certificado analisado é adequado, uma vez que segue a maioria das recomendações apresentadas.
-
-
-
-_Atualmente, para garantir um nível suficientemente seguro, recomenda-se o uso do algoritmo RSA com uma chave de tamanho acima dos 3072 bits, como está tabelado, principalmente se pretendemos que o certificado seja seguro durante um período de tempo longo. Tendo em conta que o segundo certificado abordado nesta questão tem uma data de validade de 10 anos, o tamanho da sua chave não garante uma segurança forte a longo prazo._
 
 ### Referências
 <http://www.issihosts.com/haveged/index.html>
