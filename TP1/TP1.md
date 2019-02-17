@@ -325,10 +325,7 @@ def decifrar(Criptograma,uid,passphrase):
     key=GerarKey(data,uid)
     plaintext=AES.decrypt(criptograma_plaintext,key)
     etiqueta=AES.decrypt(criptograma_etiqueta,key)
-    return plaintext,etiqueta
-    
-        
-        
+    return plaintext,etiqueta        
 ```
 
 
