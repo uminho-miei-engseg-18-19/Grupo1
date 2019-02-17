@@ -559,4 +559,5 @@ Ainda assim, pode concluir-se que o certificado analisado é adequado, uma vez q
 
 ### Referências
 <http://www.issihosts.com/haveged/index.html>
+
 <https://myonlineusb.wordpress.com/2011/06/10/what-is-the-difference-between-devrandom-and-devurandom/>
