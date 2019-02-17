@@ -277,6 +277,59 @@ Deste modo se a transferência tiver um valor muito elevado será necessário a 
 
 #### Pergunta P3.1
 
+**Funções Necessárias:**
+- VerificarAnuidade(uid) , retorna True ou False consoante o uid tiver ou não realizado o pagamento da anuidade do serviço
+- Data(), retorna a data atual no formato ano.mes.dia
+- GerarKey(data,uid), retorna a chave correspondente à data e ao uid inseridos. 
+
+```python
+def cifrar(plaintext,etiqueta,uid,passphrase):
+    if VerificarAnuidade(uid) == False:
+        print('Para utilizar o serviço tem de pagar a anuidade do serviço')
+        return -1
+    data=Data()
+    key=GerarKey(data,uid)
+    criptograma_plaintext=AES.encrypt(plaintext,key)
+    criptograma_etiqueta=AES.encrypt(etiqueta,key)
+    k=KDF(passphrase)
+    mac_plaintext=hmac(k,plaintext)
+    mac_etiqueta=hmac(k,etiqueta)
+    Criptograma=[criptograma_plaintext,criptograma_etiqueta,mac_plaintext,mac_etiqueta,data]
+    return Criptograma
+```
+
+```python
+def decifrar(Criptograma,uid,passphrase):
+    if VerificarAnuidade(uid) == False:
+        print('Para utilizar o serviço tem de pagar a anuidade do serviço')
+        return -1
+    criptograma_plaintext=Criptograma[0]
+    criptograma_etiqueta=Criptograma[1]
+    mac_plaintext=Criptograma[2]
+    mac_etiqueta=Criptograma[3]
+    data=Criptograma[4]
+    
+    k=KDF(passphrase)
+    
+    #Autenticação do plaintext
+    MAC_Plaintext=hmac(k,plaintext)
+    if MAC_Plaintext!=mac_plaintext:
+        return erro
+        
+    #Autenticação da etiqueta
+    MAC_Etiqueta=hmac(k,plaintext)
+    if MAC_Etiqueta!=mac_etiqueta:
+        return erro
+        
+    #Decifrar
+    key=GerarKey(data,uid)
+    plaintext=AES.decrypt(criptograma_plaintext,key)
+    etiqueta=AES.decrypt(criptograma_etiqueta,key)
+    return plaintext,etiqueta
+    
+        
+        
+```
 
 
 ### 4\. Algoritmos e Tamanhos de Chave
