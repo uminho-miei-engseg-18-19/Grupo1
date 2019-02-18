@@ -290,11 +290,10 @@ def cifrar(plaintext,etiqueta,uid,passphrase):
     data=Data()
     key=GerarKey(data,uid)
     criptograma_plaintext=AES.encrypt(plaintext,key)
-    criptograma_etiqueta=AES.encrypt(etiqueta,key)
     k=KDF(passphrase)
     mac_plaintext=hmac(k,plaintext)
     mac_etiqueta=hmac(k,etiqueta)
-    Criptograma=[criptograma_plaintext,criptograma_etiqueta,mac_plaintext,mac_etiqueta,data]
+    Criptograma=[etiqueta,criptograma_plaintext,mac_plaintext,mac_etiqueta,data]
     return Criptograma
 ```
 
@@ -303,8 +302,7 @@ def decifrar(Criptograma,uid,passphrase):
     if VerificarAnuidade(uid) == False:
         print('Para utilizar o serviço tem de pagar a anuidade do serviço')
         return -1
-    criptograma_plaintext=Criptograma[0]
-    criptograma_etiqueta=Criptograma[1]
+    criptograma_plaintext=Criptograma[1]
     mac_plaintext=Criptograma[2]
     mac_etiqueta=Criptograma[3]
     data=Criptograma[4]
@@ -324,8 +322,7 @@ def decifrar(Criptograma,uid,passphrase):
     #Decifrar
     key=GerarKey(data,uid)
     plaintext=AES.decrypt(criptograma_plaintext,key)
-    etiqueta=AES.decrypt(criptograma_etiqueta,key)
-    return plaintext,etiqueta        
+    return plaintext      
 ```
 
 
