@@ -16,3 +16,12 @@ Os ficheiros com as respetivas alterações encontram-se guardados na pasta TP2.
 
 #### Pergunta P3.1
 
+*Universidade de Aveiro*
+
+1. *[Resultados](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/mmlog.fis.ua.pt.md)*
+2. *Software e versão utilizada:* OpenSSH 7.2p2
+
+*Universidade do Minho*
+
+1. *[Resultados](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/193.137.11.59.md)*
+2. *Software e versão utilizada:* OpenSSH 6.7p1
