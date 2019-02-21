@@ -77,7 +77,7 @@ https://nvd.nist.gov/vuln/detail/CVE-2016-6515
 https://www.cvedetails.com/cve/CVE-2016-6515/
 
 
-Analisando os resultados obtidos conclui-se que a vulnerabilidade apresentada consiste no facto da função *auth_password*, contida em *auth_passwd.c*, não limitar o tamanho da *password* autenticada, o que pode levar à negação de serviço (crypt CPU consumption).
+Analisando os resultados obtidos conclui-se que a vulnerabilidade apresentada consiste no facto da função *auth_password*, contida em *auth_passwd.c*, não limitar o tamanho da *password* que será usada para se autenticar no sistema, o que pode levar à negação de serviço (crypt CPU consumption).
 
 Observa-se que a vulnerabilidade em análise não tem qualquer impacto na confidencialidade nem na integridade do sistema; no entanto, em termos práticos, esta vulnerabilidade pode ser considerada grave, uma vez que a existência desta vulnerabilidade permite que atacantes remotos sem necessidade de estarem autenticados, causem, temporariamente, uma negação de serviço, levando ao desligamento do mesmo, podendo ficar completamente indisponível durante um período de tempo.
 
