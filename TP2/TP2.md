@@ -12,6 +12,28 @@ De modo a simplificar o input e output do código fornecido para a experiência 
 
 ### Pergunta P2.1
 
+O objectivo era efetuar o teste _SSL Server test_ para 3 sites de Universidades Portuguesas. Assim sendo, optámos por investigar a _Universidade do Minho, a Universidade de Aveiro e o ISCTE_.
+
+  *1. [Anexe os resultados](https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP2/Pergunta2) do _SSL Server test_ à sua resposta.*
+  
+  *2. Analise o resultado do _SSL Server test_ relativo ao site escolhido com pior rating. Que comentários pode fazer sobre a sua segurança. Porquê?*
+  
+  O pior ranking que nos surge nesta pesquisa é um **B**, relativo ao site da _Universidade de Aveiro_, como podemos verificar:
+  ![Ranking UA](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta2/ua.pt.PNG)
+  Alguns problemas de segurança poderão surgir com o facto do site não suportar ainda o protocolo **TLS 1.3** que é o mais recente destes protocolos, além disso, segundo o teste, para as versões **1.2** e **1.1** também já começa a apresentar algumas vulnerabilidades, sendo mesmo considerado como uma estratégia **WEAK** usar estes dois protocolos.
+  
+  Mais ainda, permite que seja reusada o parâmetro da chave pública do algoritmo de **Elliptic Curve Dilfie Hellmann**, o que pode comprometer todo o sistema de cifra e, por isso, a avaliação da _cipher strenght_ é mais baixo do que o expectável.
+  
+  *3. É natural que tenha sido confrontado com a seguinte informação: "_This site works only in browsers with SNI support._". O que significa, para efeitos práticos?*
+  
+  Uma vez que nos testes aos servidores que escolhemos, referentes às 3 universidades acima mencionadas, não nos deparámos com esta mensagem, vamos usar, a título exemplificativo, o site do _Governo Português_, onde esta mensagem aparece.
+  ![Teste Gov Português](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta2/GovPort.PNG)
+  Como referido, esta mensagem não é de erro, mas sim de aviso/informação. **SNI** (_Server Name Identication_) é uma extensão do protocolo TLS.
+  Ao criar uma ligação TLS, o cliente requer um certificado ao servidor web com um IP. Ao receber, examina os nomes do certificado para verificar se algum deles coincide com aquele a que se queria conectar. Se houver _match_, a ligação continua normalmente.
+  
+  Por outro lado, em _name-based virtual hosting_, são armazenados vários domínios no mesmo _servidor web_ com o mesmo IP.
+  
+  Um servidor com **SNI** pode inibir a publicação de vários certificados SSL no mesmo IP.
 
 
 ## 3\. Protocolo SSH
@@ -61,9 +83,150 @@ https://www.cvedetails.com/vulnerability-list/vendor_id-97/product_id-585/versio
 
 #### Discussão dos resultados obtidos
 
-3. *Qual das versões de software tem mais vulnerabilidades?* Tendo por base a pesquisa efetuada e avaliando as versões de software relativas aos sites utilizados, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta maior número de vulnerabilidades. Observando-se que esta versão apresenta 7 vulnerabilidades, enquanto a versão *OpenSSH 6.7p1* apresenta apenas 6.
+3. *Qual das versões de software tem mais vulnerabilidades?* Tendo por base a pesquisa efetuada e avaliando as versões de software relativas aos sites utilizados, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta maior número de vulnerabilidades. Observando-se que esta versão apresenta 6 vulnerabilidades, enquanto a versão *OpenSSH 6.7p1* apresenta apenas 6.
 
 4. *Qual tem a vulnerabilidade mais grave?* Analisando o CVSS score de ambos os softwares em análise, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta a vulnerabilidade mais grave, apresentando uma vulnerabilidade com *CVSS score* de 7.8, vulnerabilidade representada como: *CVE-2016-6515*.
+23
+  Alguns problemas de segurança poderão surgir com o facto do site não suportar ainda o protocolo **TLS 1.3** que é o mais recente destes protocolos, além disso, segundo o teste, para as versões **1.2** e **1.1** também já começa a apresentar algumas vulnerabilidades, sendo mesmo considerado como uma estratégia **WEAK** usar estes dois protocolos.
+24
+  
+25
+  Mais ainda, permite que seja reusada o parâmetro da chave pública do algoritmo de **Elliptic Curve Dilfie Hellmann**, o que pode comprometer todo o sistema de cifra e, por isso, a avaliação da _cipher strenght_ é mais baixo do que o expectável.
+26
+  
+27
+  *3. É natural que tenha sido confrontado com a seguinte informação: "_This site works only in browsers with SNI support._". O que significa, para efeitos práticos?*
+28
+  
+29
+  Uma vez que nos testes aos servidores que escolhemos, referentes às 3 universidades acima mencionadas, não nos deparámos com esta mensagem, vamos usar, a título exemplificativo, o site do _Governo Português_, onde esta mensagem aparece.
+30
+  ![Teste Gov Português](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta2/GovPort.PNG)
+31
+  Como referido, esta mensagem não é de erro, mas sim de aviso/informação. **SNI** (_Server Name Identication_) é uma extensão do protocolo TLS.
+32
+  Ao criar uma ligação TLS, o cliente requer um certificado ao servidor web com um IP. Ao receber, examina os nomes do certificado para verificar se algum deles coincide com aquele a que se queria conectar. Se houver _match_, a ligação continua normalmente.
+33
+  
+34
+  Por outro lado, em _name-based virtual hosting_, são armazenados vários domínios no mesmo _servidor web_ com o mesmo IP.
+35
+  
+36
+  Um servidor com **SNI** pode inibir a publicação de vários certificados SSL no mesmo IP.
+37
+​
+38
+​
+39
+## 3\. Protocolo SSH
+40
+​
+41
+### Pergunta P3.1
+42
+​
+43
+Com o intuito de simplificar a pesquisa de serviços disponíveis na Web com o *ssh* ativo, começou por fazer-se uma pesquisa no site https://www.shodan.io/ com o intuito de encontrar servidores ssh de Universidades Portuguesas. Tendo-se efetuado a seguinte pesquisa:
+44
+​
+45
+> [`port:22 org:"Universidade do Minho"`](https://www.shodan.io/search?query=port%3A22+org%3A%22Universidade+do+Minho%22)
+46
+​
+47
+> [`port:22 org:"Universidade de Aveiro"`](https://www.shodan.io/search?query=port%3A22+org%3A%22Universidade+de+Aveiro%22)
+48
+​
+49
+Após análise dos resultados obtidos, escolheram-se os seguintes servidores:
+50
+​
+51
+> 193.137.11.59, servidor relativo à Universidade do Minho;
+52
+​
+53
+> 193.137.172.96, servidor relativo à Universidade de Aveiro.
+54
+​
+55
+Assim, utilizando o ssh-audit para efetuar os respetivos testes, obtiveram-se os seguintes resultados:
+56
+​
+57
+**Universidade de Aveiro**
+58
+​
+59
+1. *[Resultados](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/mmlog.fis.ua.pt.md)*
+60
+2. *Software e versão utilizada:* OpenSSH 7.2p2
+61
+​
+62
+**Universidade do Minho**
+63
+​
+64
+1. *[Resultados](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/193.137.11.59.md)*
+65
+2. *Software e versão utilizada:* OpenSSH 6.7p1
+66
+​
+67
+De modo a responder aos pontos 3., 4. e 5., procedeu-se à pesquisa de vulnerabilidades, no site CVE details, para cada um dos softwares identificados anteriormente, tendo-se obtido os seguintes resultados:
+68
+​
+69
+​
+70
+**OpenSSH 7.2p2**
+71
+​
+72
+![UMinho](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/UMinho.png)
+73
+​
+74
+https://www.cvedetails.com/vulnerability-list/vendor_id-97/product_id-585/version_id-194112/Openbsd-Openssh-7.2.html
+75
+​
+76
+​
+77
+**OpenSSH 6.7p1**
+78
+​
+79
+![UA](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/UA.png)
+80
+​
+81
+https://www.cvedetails.com/vulnerability-list/vendor_id-97/product_id-585/version_id-188833/Openbsd-Openssh-6.7.html
+82
+​
+83
+​
+84
+#### Discussão dos resultados obtidos
+85
+​
+86
+3. *Qual das versões de software tem mais vulnerabilidades?* Tendo por base a pesquisa efetuada e avaliando as versões de software relativas aos sites utilizados, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta maior número de vulnerabilidades. Observando-se que esta versão apresenta 6 vulnerabilidades, enquanto a versão *OpenSSH 6.7p1* apresenta apenas 6.
+87
+​
+88
+4. *Qual tem a vulnerabilidade mais grave?* Analisando o CVSS score de ambos os softwares em análise, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta a vulnerabilidade mais grave, apresentando uma vulnerabilidade com *CVSS score* de 7.8, vulnerabilidade representada como: *CVE-2016-6515*.
+89
+​
+90
+5. *Para efeitos práticos, a vulnerabilidade indicada no ponto anterior é grave? Porquê?* Para melhor perceber e analisar a vulnerabilidade apresentada no ponto anterior, optou por se fazer uma pesquisa mais detalhada em relação à mesma. Tendo-se obtido os seguintes resultados:
+91
+​
+92
+![NVD](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/NVD.png)
+
 
 5. *Para efeitos práticos, a vulnerabilidade indicada no ponto anterior é grave? Porquê?* Para melhor perceber e analisar a vulnerabilidade apresentada no ponto anterior, optou por se fazer uma pesquisa mais detalhada em relação à mesma. Tendo-se obtido os seguintes resultados:
 
@@ -77,12 +240,13 @@ https://nvd.nist.gov/vuln/detail/CVE-2016-6515
 https://www.cvedetails.com/cve/CVE-2016-6515/
 
 
-Analisando os resultados obtidos conclui-se que a vulnerabilidade apresentada consiste no facto da função *auth_password*, contida em *auth_passwd.c*, não limitar o tamanho da *password* que será usada para se autenticar no sistema, o que pode levar à negação de serviço (crypt CPU consumption).
+Analisando os resultados obtidos conclui-se que a vulnerabilidade apresentada consiste no facto da função *auth_password*, contida em *auth_passwd.c*, não limitar o tamanho da *password* autenticada, o que pode levar à negação de serviço (crypt CPU consumption).
 
-Observa-se que a vulnerabilidade em análise não tem qualquer impacto na confidencialidade nem na integridade do sistema; no entanto, em termos práticos, esta vulnerabilidade pode ser considerada grave, uma vez que a existência desta vulnerabilidade permite que atacantes remotos sem necessidade de estarem autenticados, causem, temporariamente, uma negação de serviço, levando ao desligamento do mesmo, podendo ficar completamente indisponível durante um período de tempo.
+Observa-se que a vulnerabilidade em análise não tem qualquer impacto na confidencialidade nem na integridade do sistema; no entanto, em termos práticos, esta vulnerabilidade pode ser considerada grave, uma vez que a existência desta vulnerabilidade permite que atacantes remotos não autenticados causem, temporariamente, uma negação de serviço contra a função de criptografia do sistema via sshd. Ou seja, ao enviar *passwords* demasiado longas, o atacante faz com que a aplicação entre em loop infinito e consuma recursos excessivos do CPU, levando ao desligamento do mesmo, podendo ficar completamente indisponível durante um período de tempo suficientemente largo para invadir os sistemas.
 
-Ora, isto pode trazer graves problemas se estivermos a falar por exemplo de uma loja que venda os seus produtos online. Imagine-se que o atacante explora a vulnerabilidade deixando então o site indisponível, durante o tempo em que o site estiver indisponível a loja não vai conseguir vender os seus produtos, isto teria um impacto negativo a nível financeiro, dependendo do tempo que o site ficar indisponível.
+Ora, isto pode trazer graves problemas se estivermos a falar no CPU de um banco. Imagine-se que o atacante provoca a negação de serviço do CPU de um banco, durante o tempo em que o sistema estiver indisponível. O atacante pode fazer transferências aveludadas de dinheiro, antes que o CPU volte a funcionar normalmente. Isto teria um impacto negativo a nível financeiro para o banco, podendo levar à falência do mesmo.
 
-No entanto, esta pode ser resolvida fazendo a atualização do OpenSSH.
+
+No entanto, esta é uma vulnerabilidade com baixa complexidade de ataque, sendo já conhecidos modos de a explorar e resolver. Assim, esta pode ser resolvida fazendo a atualização do OpenSSH.
 
 https://www.secpod.com/blog/openssh-crypt-cpu-consumption/
