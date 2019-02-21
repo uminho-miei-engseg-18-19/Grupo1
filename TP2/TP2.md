@@ -61,7 +61,7 @@ https://www.cvedetails.com/vulnerability-list/vendor_id-97/product_id-585/versio
 
 #### Discussão dos resultados obtidos
 
-3. *Qual das versões de software tem mais vulnerabilidades?* Tendo por base a pesquisa efetuada e avaliando as versões de software relativas aos sites utilizados, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta maior número de vulnerabilidades. Observando-se que esta versão apresenta 6 vulnerabilidades, enquanto a versão *OpenSSH 6.7p1* apresenta apenas 6.
+3. *Qual das versões de software tem mais vulnerabilidades?* Tendo por base a pesquisa efetuada e avaliando as versões de software relativas aos sites utilizados, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta maior número de vulnerabilidades. Observando-se que esta versão apresenta 7 vulnerabilidades, enquanto a versão *OpenSSH 6.7p1* apresenta apenas 6.
 
 4. *Qual tem a vulnerabilidade mais grave?* Analisando o CVSS score de ambos os softwares em análise, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta a vulnerabilidade mais grave, apresentando uma vulnerabilidade com *CVSS score* de 7.8, vulnerabilidade representada como: *CVE-2016-6515*.
 
