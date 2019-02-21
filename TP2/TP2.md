@@ -6,7 +6,7 @@
 
 Para a realização desta pergunta foi necessário criar, previamente, um par de chaves e o respetivo certificado, utilizando o openssl.
 
-De modo a simplificar o input e output do código fornecido para a experiência 1.2 foi necessário efetuar algumas alterações no respetivo código. Assim, os ficheiros com as respetivas alterações encontram-se guardados na pasta *[Pergunta1]*(https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP2/Pergunta1).
+De modo a simplificar o input e output do código fornecido para a experiência 1.2 foi necessário efetuar algumas alterações no respetivo código. Assim, os ficheiros com as respetivas alterações encontram-se guardados na pasta *[Pergunta1](https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP2/Pergunta1)*.
 
 ## 2\. Protocolo SSL/TLS
 
