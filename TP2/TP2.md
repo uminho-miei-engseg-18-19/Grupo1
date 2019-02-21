@@ -1,35 +1,90 @@
 # TP2 - Resolução
 
-### 1\. Assinaturas cegas (_Blind signatures_) baseadas no Elliptic Curve Discrete Logarithm Problem (ECDLP)
+## 1\. Assinaturas cegas (_Blind signatures_) baseadas no Elliptic Curve Discrete Logarithm Problem (ECDLP)
 
-#### Pergunta P1.1
+### Pergunta P1.1
 
-Os ficheiros com as respetivas alterações encontram-se guardados na pasta TP2.
+Para a realização desta pergunta foi necessário criar, previamente, um par de chaves e o respetivo certificado, utilizando o openssl.
 
-### 2\. Protocolo SSL/TLS
+De modo a simplificar o input e output do código fornecido para a experiência 1.2 foi necessário efetuar algumas alterações no respetivo código. Assim, os ficheiros com as respetivas alterações encontram-se guardados na pasta *[Pergunta1]*(https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP2/Pergunta1).
 
-#### Pergunta P2.1
+## 2\. Protocolo SSL/TLS
+
+### Pergunta P2.1
 
 
 
-### 3\. Protocolo SSH
+## 3\. Protocolo SSH
 
-#### Pergunta P3.1
+### Pergunta P3.1
 
-*Universidade de Aveiro*
+Com o intuito de simplificar a pesquisa de serviços disponíveis na Web com o *ssh* ativo, começou por fazer-se uma pesquisa no site https://www.shodan.io/ com o intuito de encontrar servidores ssh de Universidades Portuguesas. Tendo-se efetuado a seguinte pesquisa:
+
+> `[port:22 org:"Universidade do Minho](https://www.shodan.io/search?query=port%3A22+org%3A%22Universidade+do+Minho%22)"`
+> `[port:22 org:"Universidade de Aveiro](https://www.shodan.io/search?query=port%3A22+org%3A%22Universidade+de+Aveiro%22)"`
+
+Após análise dos resultados obtidos, escolheram-se os seguintes servidores:
+
+> 193.137.11.59, servidor relativo à Universidade do Minho;
+> 193.137.172.96, servidor relativo à Universidade de Aveiro.
+
+Assim, utilizando o ssh-audit para efetuar os respetivos testes, obtiveram-se os seguintes resultados:
+
+**Universidade de Aveiro**
 
 1. *[Resultados](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/mmlog.fis.ua.pt.md)*
 2. *Software e versão utilizada:* OpenSSH 7.2p2
 
-*Universidade do Minho*
+**Universidade do Minho**
 
 1. *[Resultados](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/193.137.11.59.md)*
 2. *Software e versão utilizada:* OpenSSH 6.7p1
 
-**Discussão dos resultados obtidos**
+De modo a responder aos pontos 3., 4. e 5., procedeu-se à pesquisa de vulnerabilidades, no site CVE details, para cada um dos softwares identificados anteriormente, tendo-se obtido os seguintes resultados:
 
-Avaliando as versões de software relativas aos sites utilizados, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta maiores vulnerabilidades. Esta versão apresenta 6 vulnerabilidades, enquanto a versão *OpenSSH 6.7p1* apresenta apenas 6.
 
-Analisando o CVSS score de ambos os softwares em análise, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta a vulnerabilidade mais grave, apresentando uma vulnerabilidade com *CVSS score* de 7.8.
+**OpenSSH 7.2p2**
 
-A vulnerabilidade apresentada consiste no facto da função *auth_password* contida em *auth_passwd.c* não limitar o tamanho da *password* autenticada, o que pode levar à negação de serviço (crypt CPU consumption).
+![UMinho](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/UMinho.png)
+
+https://www.cvedetails.com/vulnerability-list/vendor_id-97/product_id-585/version_id-194112/Openbsd-Openssh-7.2.html
+
+
+**OpenSSH 6.7p1**
+
+![UA](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/UA.png)
+
+https://www.cvedetails.com/vulnerability-list/vendor_id-97/product_id-585/version_id-188833/Openbsd-Openssh-6.7.html
+
+
+####Discussão dos resultados obtidos
+
+3. *Qual das versões de software tem mais vulnerabilidades?* Tendo por base a pesquisa efetuada e avaliando as versões de software relativas aos sites utilizados, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta maior número de vulnerabilidades. Observando-se que esta versão apresenta 6 vulnerabilidades, enquanto a versão *OpenSSH 6.7p1* apresenta apenas 6.
+
+4. *Qual tem a vulnerabilidade mais grave?* Analisando o CVSS score de ambos os softwares em análise, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta a vulnerabilidade mais grave, apresentando uma vulnerabilidade com *CVSS score* de 7.8, vulnerabilidade representada como: *CVE-2016-6515*.
+
+5. *Para efeitos práticos, a vulnerabilidade indicada no ponto anterior é grave? Porquê?* Para melhor perceber e analisar a vulnerabilidade apresentada no ponto anterior, optou por se fazer uma pesquisa mais detalhada em relação à mesma. Tendo-se obtido os seguintes resultados:
+
+![NVD](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/NVD.png)
+
+https://nvd.nist.gov/vuln/detail/CVE-2016-6515
+
+
+![CVE](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/CVE.png)
+
+https://www.cvedetails.com/cve/CVE-2016-6515/
+
+
+Analisando os resultados obtidos conclui-se que a vulnerabilidade apresentada consiste no facto da função *auth_password*, contida em *auth_passwd.c*, não limitar o tamanho da *password* autenticada, o que pode levar à negação de serviço (crypt CPU consumption).
+
+Observa-se que a vulnerabilidade em análise não tem qualquer impacto na confidencialidade nem na integridade do sistema; no entanto, pode provocar o desligamento do mesmo, sendo possível ao atacante fazer com que este fique completamente indisponível.
+
+Devido a este último facto, pode concluir-se que, em termos práticos, esta vulnerabilidade pode ser considerada grave, uma vez que a existência desta vulnerabilidade permite que atacantes remotos não autenticados causem, temporariamente, uma negação de serviço contra a função de criptografia do sistema via sshd. Ou seja, ao enviar *passwords* demasiado longas, o atacante faz com que a aplicação entre em loop infinito e consuma recursos excessivos do CPU, levando ao desligamento do mesmo, podendo ficar completamente indisponível.
+
+Um atacante remoto não autenticado pode usar esta falha para acionar temporariamente o alto consumo de CPU, provocando a sua negação de serviço, no sshd, enviando senhas longas. Esta negação de serviço pode tornar o sistema completamente indisponível durante um período de tempo. Ora, isto pode trazer graves problemas se estivermos a falar no CPU de um banco.
+Imagine-se que o atacante provoca a negação de serviço do CPU de um banco, durante o tempo em que o sistema estiver indisponível, o atacante pode fazer transferências aveludadas de dinheiro, antes que o CPU volte a funcionar normalmente. Isto teria grande impacto na parte financeira do banco, podendo levar à falência do mesmo.
+
+
+No entanto, esta é uma vulnerabilidade com baixa complexidade de ataque, sendo já conhecidos modos de a explorar e resolver. Assim, esta pode ser resolvida fazendo a atualização do OpenSSH.
+
+https://www.secpod.com/blog/openssh-crypt-cpu-consumption/
