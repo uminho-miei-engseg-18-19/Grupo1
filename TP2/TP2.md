@@ -20,12 +20,14 @@ De modo a simplificar o input e output do código fornecido para a experiência 
 
 Com o intuito de simplificar a pesquisa de serviços disponíveis na Web com o *ssh* ativo, começou por fazer-se uma pesquisa no site https://www.shodan.io/ com o intuito de encontrar servidores ssh de Universidades Portuguesas. Tendo-se efetuado a seguinte pesquisa:
 
-> `[port:22 org:"Universidade do Minho](https://www.shodan.io/search?query=port%3A22+org%3A%22Universidade+do+Minho%22)"`
-> `[port:22 org:"Universidade de Aveiro](https://www.shodan.io/search?query=port%3A22+org%3A%22Universidade+de+Aveiro%22)"`
+> [`port:22 org:"Universidade do Minho"`](https://www.shodan.io/search?query=port%3A22+org%3A%22Universidade+do+Minho%22)
+
+> [`port:22 org:"Universidade de Aveiro"`](https://www.shodan.io/search?query=port%3A22+org%3A%22Universidade+de+Aveiro%22)
 
 Após análise dos resultados obtidos, escolheram-se os seguintes servidores:
 
 > 193.137.11.59, servidor relativo à Universidade do Minho;
+
 > 193.137.172.96, servidor relativo à Universidade de Aveiro.
 
 Assim, utilizando o ssh-audit para efetuar os respetivos testes, obtiveram-se os seguintes resultados:
