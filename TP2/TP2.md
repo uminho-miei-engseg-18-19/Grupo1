@@ -57,7 +57,7 @@ https://www.cvedetails.com/vulnerability-list/vendor_id-97/product_id-585/versio
 https://www.cvedetails.com/vulnerability-list/vendor_id-97/product_id-585/version_id-188833/Openbsd-Openssh-6.7.html
 
 
-####Discussão dos resultados obtidos
+#### Discussão dos resultados obtidos
 
 3. *Qual das versões de software tem mais vulnerabilidades?* Tendo por base a pesquisa efetuada e avaliando as versões de software relativas aos sites utilizados, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta maior número de vulnerabilidades. Observando-se que esta versão apresenta 6 vulnerabilidades, enquanto a versão *OpenSSH 6.7p1* apresenta apenas 6.
 
