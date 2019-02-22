@@ -31,9 +31,9 @@ O objectivo era efetuar o teste _SSL Server test_ para 3 sites de Universidades 
 - TLS_RSA_WITH_AES_128_CBC_SHA (0x2f) 
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA (0xa)
   
-  Mais ainda, permite que seja reusada o parâmetro da chave pública do algoritmo de **Elliptic Curve Dilfie Hellmann**, o que pode comprometer o sistema e, por isso, a avaliação da _cipher strenght_ é mais baixo do que o expectável.
+Mais ainda, permite que seja reusada o parâmetro da chave pública do algoritmo de **Elliptic Curve Dilfie Hellmann**, o que pode comprometer o sistema e, por isso, a avaliação da _cipher strenght_ é mais baixo do que o expectável.
   
-  *3. É natural que tenha sido confrontado com a seguinte informação: "_This site works only in browsers with SNI support._". O que significa, para efeitos práticos?*
+*3. É natural que tenha sido confrontado com a seguinte informação: "_This site works only in browsers with SNI support._". O que significa, para efeitos práticos?*
   
   Uma vez que nos testes aos servidores que escolhemos, referentes às 3 universidades acima mencionadas, não nos deparámos com esta mensagem, vamos usar, a título exemplificativo, o site do _Governo Português_, onde esta mensagem aparece.
   ![Teste Gov Português](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta2/GovPort.PNG)
