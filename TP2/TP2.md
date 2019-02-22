@@ -12,7 +12,7 @@ De modo a simplificar o input e output do código fornecido para a experiência 
 
 ### Pergunta P2.1
 
-O objectivo era efetuar o teste _SSL Server test_ para 3 sites de Universidades Portuguesas. Assim sendo, optámos por investigar a _Universidade do Minho, a Universidade de Aveiro e o ISCTE_.
+O objectivo era efetuar o teste _SSL Server test_ para 3 sites de Universidades Portuguesas. Assim sendo, optámos por investigar a _Universidade do Porto, a Universidade de Aveiro e o ISCTE_.
 
   *1. [Anexe os resultados](https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP2/Pergunta2) do _SSL Server test_ à sua resposta.*
   
@@ -20,9 +20,18 @@ O objectivo era efetuar o teste _SSL Server test_ para 3 sites de Universidades 
   
   O pior ranking que nos surge nesta pesquisa é um **B**, relativo ao site da _Universidade de Aveiro_, como podemos verificar:
   ![Ranking UA](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta2/ua.pt.PNG)
-  Alguns problemas de segurança poderão surgir com o facto do site não suportar ainda o protocolo **TLS 1.3** que é o mais recente destes protocolos, além disso, segundo o teste, para as versões **1.2** e **1.1** também já começa a apresentar algumas vulnerabilidades, sendo mesmo considerado como uma estratégia **WEAK** usar estes dois protocolos.
+  É de notar que os maiores problemas surgem devido ao *Cipher Strength*.
+  Alguns problemas de segurança poderão surgir com o facto do site não suportar ainda o protocolo **TLS 1.3** que é o mais recente destes protocolos, e no entanto, ainda utiliza as versões **1.1** e **1.0**.
   
-  Mais ainda, permite que seja reusada o parâmetro da chave pública do algoritmo de **Elliptic Curve Dilfie Hellmann**, o que pode comprometer todo o sistema de cifra e, por isso, a avaliação da _cipher strenght_ é mais baixo do que o expectável.
+  Também apresenta algumas *Cipher Suites* fracas, como por exemplo:
+  
+- TLS_RSA_WITH_AES_256_CBC_SHA256 (0x3d)  
+- TLS_RSA_WITH_AES_256_CBC_SHA (0x35) 
+- TLS_RSA_WITH_AES_128_CBC_SHA256 (0x3c) 
+- TLS_RSA_WITH_AES_128_CBC_SHA (0x2f) 
+- TLS_RSA_WITH_3DES_EDE_CBC_SHA (0xa)
+  
+  Mais ainda, permite que seja reusada o parâmetro da chave pública do algoritmo de **Elliptic Curve Dilfie Hellmann**, o que pode comprometer o sistema e, por isso, a avaliação da _cipher strenght_ é mais baixo do que o expectável.
   
   *3. É natural que tenha sido confrontado com a seguinte informação: "_This site works only in browsers with SNI support._". O que significa, para efeitos práticos?*
   
