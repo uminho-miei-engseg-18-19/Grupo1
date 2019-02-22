@@ -73,7 +73,7 @@ Assim, utilizando o ssh-audit para efetuar os respetivos testes, obtiveram-se os
 1. *[Resultados](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta3/193.137.11.59.md)*
 2. *Software e versão utilizada:* OpenSSH 6.7p1
 
-De modo a responder aos pontos 3., 4. e 5., procedeu-se à pesquisa de vulnerabilidades, no site CVE details, para cada um dos softwares identificados anteriormente, tendo-se obtido os seguintes resultados:
+De modo a responder aos pontos 3, 4, e 5, procedeu-se à pesquisa de vulnerabilidades, no site CVE details, para cada um dos softwares identificados anteriormente, tendo-se obtido os seguintes resultados:
 
 
 **OpenSSH 7.2p2**
@@ -92,7 +92,7 @@ https://www.cvedetails.com/vulnerability-list/vendor_id-97/product_id-585/versio
 
 #### Discussão dos resultados obtidos
 
-3. *Qual das versões de software tem mais vulnerabilidades?* Tendo por base a pesquisa efetuada e avaliando as versões de software relativas aos sites utilizados, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta maior número de vulnerabilidades. Observando-se que esta versão apresenta 6 vulnerabilidades, enquanto a versão *OpenSSH 6.7p1* apresenta apenas 6.
+3. *Qual das versões de software tem mais vulnerabilidades?* Tendo por base a pesquisa efetuada e avaliando as versões de software relativas aos sites utilizados, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta maior número de vulnerabilidades. Observando-se que esta versão apresenta 7 vulnerabilidades, enquanto a versão *OpenSSH 6.7p1* apresenta apenas 6.
 
 4. *Qual tem a vulnerabilidade mais grave?* Analisando o CVSS score de ambos os softwares em análise, conclui-se que a versão *OpenSSH 7.2p2* é a que apresenta a vulnerabilidade mais grave, apresentando uma vulnerabilidade com *CVSS score* de 7.8, vulnerabilidade representada como: *CVE-2016-6515*.
 
@@ -108,13 +108,12 @@ https://nvd.nist.gov/vuln/detail/CVE-2016-6515
 https://www.cvedetails.com/cve/CVE-2016-6515/
 
 
-Analisando os resultados obtidos conclui-se que a vulnerabilidade apresentada consiste no facto da função *auth_password*, contida em *auth_passwd.c*, não limitar o tamanho da *password* autenticada, o que pode levar à negação de serviço (crypt CPU consumption).
+Analisando os resultados obtidos conclui-se que a vulnerabilidade apresentada consiste no facto da função *auth_password*, contida em *auth_passwd.c*, não limitar o tamanho da *password* que será usada para se autenticar no sistema, o que pode levar à negação de serviço (crypt CPU consumption).
 
-Observa-se que a vulnerabilidade em análise não tem qualquer impacto na confidencialidade nem na integridade do sistema; no entanto, em termos práticos, esta vulnerabilidade pode ser considerada grave, uma vez que a existência desta vulnerabilidade permite que atacantes remotos não autenticados causem, temporariamente, uma negação de serviço contra a função de criptografia do sistema via sshd. Ou seja, ao enviar *passwords* demasiado longas, o atacante faz com que a aplicação entre em loop infinito e consuma recursos excessivos do CPU, levando ao desligamento do mesmo, podendo ficar completamente indisponível durante um período de tempo suficientemente largo para invadir os sistemas.
+Observa-se que a vulnerabilidade em análise não tem qualquer impacto na confidencialidade nem na integridade do sistema; no entanto, em termos práticos, esta vulnerabilidade pode ser considerada grave, uma vez que a existência desta vulnerabilidade permite que atacantes remotos sem necessidade de estarem autenticados, causem, temporariamente, uma negação de serviço, levando ao desligamento do mesmo, podendo ficar completamente indisponível durante um período de tempo.
 
-Ora, isto pode trazer graves problemas se estivermos a falar no CPU de um banco. Imagine-se que o atacante provoca a negação de serviço do CPU de um banco, durante o tempo em que o sistema estiver indisponível. O atacante pode fazer transferências aveludadas de dinheiro, antes que o CPU volte a funcionar normalmente. Isto teria um impacto negativo a nível financeiro para o banco, podendo levar à falência do mesmo.
+Ora, isto pode trazer graves problemas se estivermos a falar por exemplo de uma loja que venda os seus produtos online. Imagine-se que o atacante explora a vulnerabilidade deixando então o site indisponível, durante o tempo em que o site estiver indisponível a loja não vai conseguir vender os seus produtos, isto teria um impacto negativo a nível financeiro, dependendo do tempo que o site ficar indisponível.
 
-
-No entanto, esta é uma vulnerabilidade com baixa complexidade de ataque, sendo já conhecidos modos de a explorar e resolver. Assim, esta pode ser resolvida fazendo a atualização do OpenSSH.
+No entanto, esta pode ser resolvida fazendo a atualização do OpenSSH.
 
 https://www.secpod.com/blog/openssh-crypt-cpu-consumption/
