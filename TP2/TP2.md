@@ -21,7 +21,7 @@ O objectivo era efetuar o teste _SSL Server test_ para 3 sites de Universidades 
   O pior ranking que nos surge nesta pesquisa é um **B**, relativo ao site da _Universidade de Aveiro_, como podemos verificar:
   ![Ranking UA](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP2/Pergunta2/ua.pt.PNG)
   É de notar que os maiores problemas surgem devido ao *Cipher Strength*.
-  Alguns problemas de segurança poderão surgir com o facto do site não suportar ainda o protocolo **TLS 1.3** que é o mais recente destes protocolos, e no entanto, ainda utiliza as versões **1.1** e **1.0**.
+  Alguns problemas de segurança poderão surgir com o facto do site não suportar ainda o protocolo **TLS 1.3** que é o mais recente destes protocolos e, no entanto, ainda utilizar as versões **1.1** e **1.0**.
   
   Também apresenta algumas *Cipher Suites* fracas, como por exemplo:
   
