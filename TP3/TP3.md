@@ -8,7 +8,7 @@
 Ao efetuar o comando ``sudo anonsurf start`` não conseguimos garantir que estamos nos EUA.
 
 #### 2.
-Ao estabelecer uma comunicação TOR, o OP salta de circuito para circuito em intervalos de 1 minuto. Para este circuito, o OP necessita de, por norma, 3 OR acordando uma chave simétrica com cada um deles, sendo que o OP não tem poder de escolha em relação a estes OR, que são fornecidos por um Directory Server. Assim sendo, sabemos quais as localizações que os circuitos abragem, mas não podemos escolher estar numa.
+Ao estabelecer uma comunicação TOR, o OP salta de circuito para circuito em intervalos de 1 minuto. Para este circuito, o OP necessita de, por norma, 3 OR acordando uma chave simétrica com cada um deles. Note-se que o OP não tem poder de escolha em relação a estes OR, uma vez que estes são fornecidos, de forma aleatória, por um Directory Server. Assim sendo, sabemos quais as localizações que os circuitos abragem, mas não podemos escolher estar numa, isto porque o TOR garante anonimato ponto a ponto, ou seja, quando o OP estabelece os circuitos não tem controlo sobre os OR que formarão esse circuito, pelo que é impossível saber, após estabelecimento de um circuito, qual o OR ao qual o OP se vai ligar.
 
 ### Pergunta P1.2
 
