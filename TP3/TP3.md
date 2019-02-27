@@ -16,6 +16,10 @@ Ao estabelecer uma comunicação TOR, o OP salta de circuito para circuito em in
 
 ![circuito](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP3/pergunta1_2.png)
 
+#### 2.
+
+Os seis saltos servem para existir anonimato tanto do lado do utilizador como do servidor, os primeiros três servem para garantir o anonimato do utilizador, para tal faz uso de três OR que são proporcionados pelo Directory Server para o utilizador se conectar ao servidor. Os ultimos três são aos OR atribuídos pelo OP de destino.
+
 #### 2. Analisando a imagem acima, observa-se que existem 6 "saltos" até ao site Onion, sendo que 3 deles são "relay". Isto deve-se ao facto de se estabelecerem pontos *rendezvous*, estes pontos servem de suporte à disponibilização de serviços anónimos. Permitindo que tanto o OP que acede ao serviço como o OP que é acedido sejam anónimos.
 
 Deste modo, a existência destes 6 "saltos" devem-se a: (suponhamos que a Alice é a entidade que pretende aceder a um determinado serviço web e a Bob é esse mesmo serviço)
