@@ -18,34 +18,12 @@ Ao estabelecer uma comunicação TOR, o OP salta de circuito para circuito em in
 
 #### 2.
 
-Os seis saltos servem para existir anonimato tanto do lado do utilizador como do servidor, os primeiros três servem para garantir o anonimato do utilizador, para tal faz uso de três OR que são proporcionados pelo Directory Server para o utilizador se conectar ao servidor. Os ultimos três são aos OR atribuídos pelo OP de destino.
+Analisando a imagem acima, observa-se que existem 6 "saltos" até ao site Onion, sendo que os 3 últimos são do tipo "relay". Isto deve-se ao facto de se estabelecerem pontos *rendezvous*, pontos estes que servem de suporte à disponibilização de serviços anónimos. Note-se que na rede TOR, a disponibilização deste tipo de serviços permite a um OP disponibilizar serviços TCP, como por exemplo, *web services*, sem revelar o seu endereço IP. Deste modo, como o OP que acede ao serviço anónimo é também ele anonimizado, tanto o OP que acede como o OP que é acedido são anónimos.
 
-#### 2. Analisando a imagem acima, observa-se que existem 6 "saltos" até ao site Onion, sendo que 3 deles são "relay". Isto deve-se ao facto de se estabelecerem pontos *rendezvous*, estes pontos servem de suporte à disponibilização de serviços anónimos. Permitindo que tanto o OP que acede ao serviço como o OP que é acedido sejam anónimos.
+Recordando o que foi visto nas aulas teóricas, normalmente, os circuitos com o estabelecimento de pontos *rendezvous* consistem em circuitos de 6 OR, sendo que 3 deles são escolhidos pelo utilizador e os restantes 3 pelo servidor. Nesse circuito, o utilizador escolhe os 3 primeiros OR, sendo o terceiro OR um RP (após a escolha do RP, o utilizador constrói um circuito TOR até ele), e o servidor escolhe os últimos 3; assim, após escolhido este RP o utilizador envia uma célula *relay begin* através do circuito que, chegando ao servidor, se conecta com o serviço web ao qual se pretende aceder.
 
-Deste modo, a existência destes 6 "saltos" devem-se a: (suponhamos que a Alice é a entidade que pretende aceder a um determinado serviço web e a Bob é esse mesmo serviço)
+O servidor escolhe pontos de introdução e anuncia-os no Directory Server, assinando o anúncio com a sua chave privada, sendo que estes pontos de introdução servirão para criar um circuito TOR. Assim, quando um utilizador quiser aceder a esse servidor, terá de o fazer no TOR através do Directory Server.
 
-> Bob gera um par de chaves de longo tempo para identificar o seu serviço Web, sendo a chave pública o identificador do serviço;
+Ou seja, com o intuito de identificar o serviço que vai disponibilizar, o servidor começa por gerar um par de chaves de longo tempo e escolhe alguns pontos de introdução. Assim, o circuito formado pelo utilizador vai tentar conectar-se a um dos pontos de introdução escolhidos pelo servidor, esta conexão é feita através do RP. Após estabelecida esta conexão, o utilizador envia células relay que transportam informação necessária para que o servidor verifique se quer, de facto, permitir que o utilizador se conecte ao serviço que disponibiliza. Caso o servidor aceite "falar" com o utilizador estabelece um circuito TOR até ao RP. Note-se que o RP não consegue reconhecer o utilizador, o servidor nem os dados que estão a ser transmitidos.
 
-> Bob escolhe alguns pontos de introdução e anuncia-os no Directory Server, assinando o anuncio com a sua chave privada;
-
-> Bob cria um circuito TOR para cada um dos pontos de introdução e pede-lhes para esperarem por pedidos.
-
-Depois de criado o circuito TOR, acontece o seguinte:
-
-> Alice sabe da existência do serviço XYZ.onion e acede aos seus detalhes (chave pública e pontos de introdução) no TOR através do Directory Server;
-
-> Alice escolhe um OR como ponto de rendezvous (RP) para a conexão com o serviço ao qual o Bob quer aceder;
-
-> Alice constrói um circuito TOR até ao RP e fornece-lhe um “rendezvous cookie” (segredo aleatório único) para posterior reconhecimento do serviço web;
-
-> Alice abre um stream anónimo até um dos pontos de introdução e fornece-lhe uma mensagem (cifrada com a chave pública do serviço web) com informação sobre o RP, o “rendezvous cookie” e o inicio de troca de chaves Diffie-Hellman. O ponto de introdução reencaminha a mensagem para o serviço web através do circuito TOR criado nos passos anteriores.
-
-Por fim,
-
-> Se o Bob pretender falar com a Alice (OP), este cria um circuito TOR até ao RP e envia o “rendezvous cookie”, a segunda parte da troca de chaves Diffie-Hellman e um hash da chave de sessão que agora partilha com a Alice;
-
-> O RP conecta o circuito da Alice com o circuito do Bob (normalmente o circuito consiste de 6 OR: 3 escolhidos por Alice sendo o terceiro o RP e, outros 3 escolhidos por Bob). Note-se que o RP não consegue reconhecer Alice, Bob nem os dados que transmitem;
-
-> Alice envia uma célula de relay begin através do circuito que, ao chegar ao OP de Bob, conecta com o serviço disponibilizado pelo Bob;
-
-> Um stream anónimo foi estabelecido e Alice e Bob comunicam da forma normal num stream TOR.
+Por fim, a existência das células *relay* devem-se ao facto da comunicação necessitar de transferir dados de uns OR para outros, dados estes necessários para que a conexão entre utilizador e servidor seja estabelecida. Note-se que estas células têm como principal função transportar dados de um lado para o outro, daí que o uso das mesmas, neste contexto, faça todo o sentido.
