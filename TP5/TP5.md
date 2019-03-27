@@ -13,9 +13,16 @@ Com o intuito de na criação do Genesis Block, o timestamp ser a data do dia de
 ### Pergunta 2.1
 
 ![Dificuldade2](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP5/P2_1/P2_1_dificuldade2.png)
+<center>* Dificuldade 2 *</center>
+
 ![Dificuldade3](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP5/P2_1/P2_1_dificuldade3.png)
+<center>* Dificuldade 3 *</center>
+
 ![Dificuldade4](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP5/P2_1/P2_1_dificuldade4.png)
+<center>* Dificuldade 4 *</center>
+
 ![Dificuldade5](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP5/P2_1/P2_1_dificuldade5.png)
+<center>* Dificuldade 5 *</center>
 
 Analisando os resultados obtidos, conclui-se que à medida que se aumenta a dificuldade, o tempo de resolução do puzzle aumenta, o que era de esperar, uma vez que com o aumento da dificuldade, aumenta também a dificuldade de resolução do puzzle.
 
