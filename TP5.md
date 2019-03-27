@@ -2,6 +2,12 @@
 
 ## 1. Blockchain
 
+### Pergunta 1.1
+
+Com o intuito de na criação do Genesis Block, o timestamp ser a data do dia de hoje e o dado incluído nesse Bloco ser "Bloco inicial da koreCoin", efetuaram-se algumas alterações no código disponibilizado. O código alterado encontra-se na diretoria P1_1.
+
+### Pergunta 1.2
+
 ## 2. Proof of Work Consensus Model
 
 ### Pergunta 2.1
