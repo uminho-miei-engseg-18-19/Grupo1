@@ -33,9 +33,9 @@ Não existe uma fórmula que calcule o número de vulnerabilidades a partir do n
 
 **Vulnerabilidades de Codificação**
 
-- [Improper input validition](https://cwe.mitre.org/data/definitions/20.html). Se um input é mal lido, todo o fluxo de dados pode tornar-se confuso e ser mesmo afetado negativamente. 
-- Heap-based buffer overflow
+- [Improper input validition](https://cwe.mitre.org/data/definitions/20.html). Se um input é mal lido, todo o fluxo de dados pode tornar-se confuso e ser mesmo afetado negativamente. Uma estratégia é implementar o código de forma a que aceite apenas determinados inputs, isto é, mais específicos ou incluir logo funções que convertam os inputs na forma que pretendemos.
+- [Heap-based buffer overflow](https://cwe.mitre.org/data/definitions/122.html). A vulnerabilidade _heap overflow_ é como um _buffer overflow_, porém, o pedaço de memória onde o _buffer_ pode subscrever é no chamado _heap_ que funciona como uma alocação de memória dinâmica... que pode ocorrer em qualquer pedaço livre de memória. Ocorre o _buffer_ quando se usa um comando como _malloc()_. Explorar esta vulnerabilidade tem um nível elevado de possível sucesso, assim como não é imediato corrigir esta, uma vez que pode ser atacada na fase de projecto, assim como na fase de operações.
 
 **Vulnerabilidades Operacionais**
 
--
+- 
