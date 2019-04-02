@@ -28,12 +28,12 @@ Não existe uma fórmula que calcule o número de vulnerabilidades a partir do n
 
 **Vulnerabilidades de Projecto**
 
-- Not using password aging 
-- Execution with unnecessary privileges 
+- [Not using password aging](https://cwe.mitre.org/data/definitions/262.html). Apesar de maior parte das aplicações recomendar a atualização das passwords e a não utilização de passwords iguais em todos os sistemas, muitas vezes, não é incluído no desenho do software uma forma de prever que as passwords "passem o seu prazo de validade". Para melhorar esta característica de segurança podia ser incluído um sistema de notificação/aviso de password "velha" com a sugestão de que a substituíssem por uma forte, atualmente. Assim, seria algo corrigido com alguma facilidade.
+- [Execution with unnecessary privileges](https://cwe.mitre.org/data/definitions/250.html). Esta vulnerabilidade remete-nos para um nível de permissões muito elevado em certas aplicações, permissões estas que podiam ser bem mais reduzidas. Assim sendo, é bastante plausível para um atacante ter acesso e explorar funcionalidades que não lhe deviam ser alcançáveis. Resolver isto passaria por criar utilizadores diferentes, com permissões limitadas para o propósito do utilizador ou para tarefas únicas. Elevar os privilégios quando necessário e reduzi-los assim que deixasse de ser aplicável também seria uma boa hipótese. Implementar isto pode não ser imediato, mas precaveria muitos ataques que são considerados fáceis. 
 
 **Vulnerabilidades de Codificação**
 
-- Improper input validition
+- [Improper input validition](https://cwe.mitre.org/data/definitions/20.html). Se um input é mal lido, todo o fluxo de dados pode tornar-se confuso e ser mesmo afetado negativamente. 
 - Heap-based buffer overflow
 
 **Vulnerabilidades Operacionais**
