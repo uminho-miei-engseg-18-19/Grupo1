@@ -38,6 +38,6 @@ Não existe uma fórmula que calcule o número de vulnerabilidades a partir do n
 
 **Vulnerabilidades Operacionais**
 
-- [J2EE Misconfiguration - Data transmission without encryption](https://cwe.mitre.org/data/definitions/5.html).
+- [J2EE Misconfiguration - Data transmission without encryption](https://cwe.mitre.org/data/definitions/5.html). Enviar informação não cifrada pela rede torna-a substancialmente mais frágil e acessível. Assim, se alguém apanhar a comunicação ou tiver acesso à rede onde está a ser comunicada a informação, terá visibilidade sobre o _plaintext_.
 
 - [OWASP 2017 - Information exposure through an error message](https://cwe.mitre.org/data/definitions/209.html)
