@@ -4,7 +4,7 @@
 
 ### Pergunta 1.1
 
-Com o intuito de na criação do *Genesis Block*, o timestamp ser a data do dia de hoje e o dado incluído nesse Bloco ser "Bloco inicial da koreCoin", efetuaram-se algumas alterações no código disponibilizado. O código alterado encontra-se na ![diretoria P1_1](https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP5/P1_1).
+Com o intuito de na criação do *Genesis Block*, o timestamp ser a data do dia de hoje e o dado incluído nesse Bloco ser "Bloco inicial da koreCoin", efetuaram-se algumas alterações no código disponibilizado. O código alterado encontra-se na [diretoria P1_1](https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP5/P1_1).
 
 ### Pergunta 1.2
 
