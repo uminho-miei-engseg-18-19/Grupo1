@@ -42,6 +42,6 @@ Não existe uma fórmula que calcule o número de vulnerabilidades a partir do n
 
 ### Pergunta P1.3
 
-Uma *vulnerabilidade de dia zero* é uma vulnerabilidade que não é conhecida na comunidade de segurança informática (desenvolvedores de software, fabricantes de antivírus ou público em geral), mas que é conhecida num meio restrito. 
+Uma **vulnerabilidade de dia zero** é uma vulnerabilidade que não é conhecida na comunidade de segurança informática (desenvolvedores de software, fabricantes de antivírus ou público em geral), mas que é conhecida num meio restrito. 
 
-Por outro lado, uma *vulnerabilidade de codificação* encontra-se listada em bases de dados cujo objetivo é disponibilizar as diferentes vulnerabilidades existentes. Deste modo, toda a comunidade fica a conhecer as diferentes vulnerabilidades que cada software apresenta.
+Por outro lado, uma **vulnerabilidade de codificação** encontra-se listada em bases de dados cujo objetivo é disponibilizar as diferentes vulnerabilidades existentes. Deste modo, toda a comunidade fica a conhecer as diferentes vulnerabilidades que cada software apresenta.
