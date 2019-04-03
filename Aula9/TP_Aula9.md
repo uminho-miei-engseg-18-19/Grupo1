@@ -21,6 +21,7 @@ Ora, através do site citado no enunciado e fazendo os cálculos necessários, p
 
 Não existe uma fórmula que calcule o número de vulnerabilidades a partir do número de bugs de um software, isto é, não é possível determinar quantos dos 5 a 50 bugs por cada 1000 linhas de código se vão manifestar como vulnerabilidades!
 
+*************
 
 ### Pergunta P1.2
 
@@ -39,6 +40,8 @@ Não existe uma fórmula que calcule o número de vulnerabilidades a partir do n
 - [J2EE Misconfiguration - Data transmission without encryption](https://cwe.mitre.org/data/definitions/5.html). Enviar informação não cifrada pela rede torna-a substancialmente mais frágil e acessível. Assim, se um atacante interceptar a comunicação ou tiver acesso à rede onde está a ser comunicada a informação, terá visibilidade sobre o _plaintext_. Fazer uso do SSL, ou de algum tipo de sistema criptográfico, resolveria este problema, uma vez que seria possível cifrar toda a informação e assim garantir alguma segurança na comunicação.
 
 - [OWASP 2017 - Information exposure through an error message](https://cwe.mitre.org/data/definitions/209.html). Ao executar uma operação, o atacante pode receber mensagens de erro com informação mais detalhada e relevante ao ponto de fornecer informações sobre outras funcionalidades da aplicação ou do sistema. Isto é, ao receber uma mensagem de erro pode descobrir como explorar e atacar outras características do software. A solução passa por reduzir a informação que se destaca nas mensagens de erro que aparecem durante o _runtime_, com funções facilmente implementáveis na fase de configuração.
+
+********
 
 ### Pergunta P1.3
 
