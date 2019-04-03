@@ -39,3 +39,5 @@ Não existe uma fórmula que calcule o número de vulnerabilidades a partir do n
 **Vulnerabilidades Operacionais**
 
 - [J2EE Misconfiguration - Data transmission without encryption](https://cwe.mitre.org/data/definitions/5.html).
+
+- [OWASP 2017 - Information exposure through an error message](https://cwe.mitre.org/data/definitions/209.html)
