@@ -24,8 +24,6 @@ Não existe uma fórmula que calcule o número de vulnerabilidades a partir do n
 
 ### Pergunta P1.2
 
-[falta colocar links e explicar correções]
-
 **Vulnerabilidades de Projecto**
 
 - [Not using password aging](https://cwe.mitre.org/data/definitions/262.html). Apesar de maior parte das aplicações recomendar a atualização das passwords e a não utilização de passwords iguais em todos os sistemas, muitas vezes, não é incluído no desenho do software uma forma de prever que as passwords "passem o seu prazo de validade". Para melhorar esta característica de segurança podia ser incluído um sistema de notificação/aviso de password "velha" com a sugestão de que a substituíssem por uma forte, atualmente. Assim, seria algo corrigido com alguma facilidade.
