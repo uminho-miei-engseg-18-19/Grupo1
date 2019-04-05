@@ -10,7 +10,7 @@ Os dados devem ser conservados apenas durante o tempo necessário para o intuito
 
 Quem quiser realizar um tratamento de dados deve garantir que existem medidas de realizar tal tratamento dos mesmo de forma segura, incluindo tanto a proteção contra tratamentos não autorizados e contra uma possível perda dos mesmos, destruição ou danificação acidental, para tal devem ser adotadas medidas técnicas adequados afim de garantir então a integridade e confidencialidade dos mesmos.
 
-Deve sempre se ter em conta o aspeto de minimizar os dados quando os recolhemos, ou seja, quem planear realizar um tratamento de dados têm de assegurar que só registam e tratam os dados pessoais estritamente necessários para cada fim estipulado.
+Deve sempre se ter em conta o aspeto de minimizar os dados quando os recolhemos, ou seja, quem planear realizar um tratamento de dados tem de assegurar que só registam e tratam os dados pessoais estritamente necessários para cada fim estipulado.
 
 Devem também ser garantidas maneiras de verificar a veracidade dos dados e que eles se encontram atualizados devendo ser tomadas sempre medidas pertinentes no âmbito de evitar dados imprecisos, por exemplo, se uma empresa realizar um tratamento de dados, a mesma deve periodicamente garantir a atualização dos seus dados.
 
