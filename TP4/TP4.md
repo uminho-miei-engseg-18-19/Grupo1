@@ -4,15 +4,15 @@
 
 #### Pergunta P1.1
 
-Quando falamos em princípios relativos ao tratamento de dados pessoais, temos que ter alguns aspetos em conta. Sempre que se procede a uma recolha de dados, estes, devem ter uma causa definida e efetiva, para o qual são recolhidos, ou seja, não é permitido que sejam recolhidos dados sem uma razão de causa, para além disso estes devem ser tratados de maneira lícita, coerente e transparente no que diz respeito ao titular dos mesmos.
+Quando falamos em princípios relativos ao tratamento de dados pessoais temos que ter alguns aspetos em conta. Sempre que se procede a uma recolha de dados, estes devem ter uma causa definida e efetiva para o qual são recolhidos, ou seja, não é permitido que sejam recolhidos dados sem uma razão de causa, para além disso, estes devem ser tratados de forma lícita, coerente e transparente no que diz respeito ao titular dos mesmos.
 
-Os dados devem ser conservados apenas durante o tempo necessário para o intuito ao quais foram recolhidos, por exemplo, uma empresa não deve guardar dados de clientes que já não têm qualquer relação com a empresa, ocorrendo exceções em caso de interesse público, fins de investigação científica ou histórica ou também para possíveis fins estatísticos. 
+Os dados devem ser conservados apenas durante o tempo necessário para o intuito ao quais foram recolhidos. Por exemplo, uma empresa não deve guardar dados de clientes que já não têm qualquer relação com a mesma, ocorrendo exceções em caso de interesse público, fins de investigação científica ou histórica, ou também para possíveis fins estatísticos. 
 
-Quem quiser realizar um tratamento de dados deve garantir que existem medidas de realizar tal tratamento dos mesmo de forma segura, incluindo tanto a proteção contra tratamentos não autorizados e contra uma possível perda dos mesmos, destruição ou danificação acidental, para tal devem ser adotadas medidas técnicas adequados afim de garantir então a integridade e confidencialidade dos mesmos.
+Quem quiser realizar um tratamento de dados deve garantir que existem medidas para realizar tal tratamento de forma segura, incluindo tanto a proteção contra tratamentos não autorizados como contra uma possível perda dos mesmos, destruição ou danificação acidental, para tal devem ser adotadas medidas técnicas adequadas afim de garantir a integridade e confidencialidade dos mesmos.
 
-Deve sempre se ter em conta o aspeto de minimizar os dados quando os recolhemos, ou seja, quem planear realizar um tratamento de dados tem de assegurar que só registam e tratam os dados pessoais estritamente necessários para cada fim estipulado.
+Deve sempre ter-se em conta o aspeto de minimizar os dados quando os recolhemos, ou seja, quem planear realizar um tratamento de dados tem de assegurar que só registam e tratam os dados pessoais estritamente necessários para cada fim estipulado.
 
-Devem também ser garantidas maneiras de verificar a veracidade dos dados e que eles se encontram atualizados devendo ser tomadas sempre medidas pertinentes no âmbito de evitar dados imprecisos, por exemplo, se uma empresa realizar um tratamento de dados, a mesma deve periodicamente garantir a atualização dos seus dados.
+Devem também ser garantidas formas de verificar a veracidade dos dados e que eles se encontram atualizados devendo ser tomadas sempre medidas pertinentes no âmbito de evitar dados imprecisos. Por exemplo, se uma empresa realizar um tratamento de dados, a mesma deve periodicamente garantir a atualização dos mesmos.
 
 
 #### Pergunta P1.2
