@@ -17,6 +17,37 @@ Devem também ser garantidas maneiras de verificar a veracidade dos dados e que 
 
 #### Pergunta P1.2
 
+A pseudonimização é uma técnica para codificar dados pessoais e diminuir algumas das obrigações do RGPD. Deste modo, os data controller podem estabelecer os seguintes objetivos:
+
+D1: a partir do pseudónimo não deve ser possível, para um terceiro, reidentificar o indivíduo ao qual aquele pseudónimo diz respeito;
+
+D2: não deve ser trivial, para qualquer terceiro, reproduzir os pseudónimos.
+
+Analisemos algumas técnicas utilizadas na pseudonimização. Comece-se pelas técnicas baseadas em funções de hash: hashing without key, hashing with key e hashing with salt.
+
+As duas últimas técnicas baseiam-se na técnica hashing without key. Apesar das desvantagens desta técnica, note-se que o hashing pode ser uma ferramenta útil para suportar a precisão dos dados, uma vez que as funções de hash permitem verificar a integridade dos dados e autenticar uma dada entidade.
+
+No entanto, criar pseudónimos recorrendo ao hashing simples de dados identificativos tem grandes desvantagens, uma vez que inputs iguais originam o mesmo output, não se verificando as propriedades D1 e D2.
+
+Por outro lado, no hashing with key or salt, inputs iguais já não originam os mesmos outputs, pelo que as propriedades D1 e D2 são verificadas. Isto deve-se ao facto de se usar uma chave ou um salt. Esta técnica é, normalmente, aplicada quando o data controller precisa de rastrear os indivíduos sem, no entanto, armazenar os seus identificadores iniciais.
+
+Uma outra técnica é o hashing com “salt”, no entanto, a utilização de “salts” para a proteção das funções de hash apresent algumas desvantagens, uma vez que os “salts” são armazenados em conjunto com os valores de hash correspondentes.
+
+A aplicação da criptografia simétrica aos dados identificadores de um dado indivíduo é também uma técnica eficiente na derivação de pseudónimos. Esta técnica é geralmente utilizada nos casos em que um data controller precisa de rastrear os dados e conhecer os identificadores iniciais.
+
+É também possível recorrer a criptografia assimétrica para derivar pseudónimos, no caso em que o data controler pretende que a entidade autorizada a executar a pseudonimização não seja a mesma que está autorizada a realizar a reidentificação e quando pretende gerar pseudónimos diferentes para o mesmo indíviduo.
+
+Uma outra abordagem interessante é permitir que os utilizadores participantes gerem os seus próprios pseudónimos, mantendo-os na sua posse. No entanto, trata-se de uma técnica que não é trivial e que tem alguns problemas associados. 
+
+A tokenização é outra técnica de pseudonimização. Trata-se de um processo em que os identificadores dos titulares de dados são substituídos por valores gerados aleatoriamente. É, no entanto, uma técnica difícil de implementar e, portanto, as técnicas baseadas em funções de hash e as técnicas criptográficas podem ser preferíveis, relativamente à redução da complexidade e do armazenamento.
+
+Por fim, existem ainda outras abordagens para a criação de pseudónimos, nomeadamente, o masking, o scrambling e o blurring.
+
+O masking refere-se ao processo de ocultar parte do identificador de um indivíduo com caracteres aleatórios ou outros dados. Por outro lado, o scrambling refere-se a técnicas gerais para misturar ou ofuscar as identidades. No entanto, ambas as técnicas são fracas na derivação de pseudónimos, pelo que o seu uso não é recomendado como uma boa prática no processamento de dados pessoais.
+
+Relativamente ao blurring trata-se de uma técnica que visa utilizar uma aproximação dos valores dos dados, de modo a reduzir a precisão dos mesmos, reduzindo a possibilidade de identificação dos indivíduos.
+
+
 #### Pergunta P1.3
 
 1. Para avaliar se um processamento de dados pessoais vai ou não resultar num risco elevado são usados os 9 critérios listados abaixo:
