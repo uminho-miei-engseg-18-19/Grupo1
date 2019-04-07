@@ -29,9 +29,9 @@ As duas últimas técnicas baseiam-se na técnica hashing without key. Apesar da
 
 No entanto, criar pseudónimos recorrendo ao hashing simples de dados identificativos tem grandes desvantagens, uma vez que inputs iguais originam o mesmo output, não se verificando as propriedades D1 e D2.
 
-Por outro lado, no hashing with key or salt, inputs iguais já não originam os mesmos outputs, pelo que as propriedades D1 e D2 são verificadas. Isto deve-se ao facto de se usar uma chave ou um salt. Esta técnica é, normalmente, aplicada quando o data controller precisa de rastrear os indivíduos sem, no entanto, armazenar os seus identificadores iniciais.
+Por outro lado, no hashing with key ou salt, inputs iguais já não originam os mesmos outputs, pelo que as propriedades D1 e D2 são verificadas. Isto deve-se ao facto de se usar uma chave ou um salt. Esta técnica é, normalmente, aplicada quando o data controller precisa de rastrear os indivíduos sem, no entanto, armazenar os seus identificadores iniciais.
 
-Uma outra técnica é o hashing com “salt”, no entanto, a utilização de “salts” para a proteção das funções de hash apresent algumas desvantagens, uma vez que os “salts” são armazenados em conjunto com os valores de hash correspondentes.
+Na técnica hashing com “salt”,, a utilização de “salts” para a proteção das funções de hash apresenta algumas desvantagens, uma vez que os “salts” são armazenados em conjunto com os valores de hash correspondentes.
 
 A aplicação da criptografia simétrica aos dados identificadores de um dado indivíduo é também uma técnica eficiente na derivação de pseudónimos. Esta técnica é geralmente utilizada nos casos em que um data controller precisa de rastrear os dados e conhecer os identificadores iniciais.
 
