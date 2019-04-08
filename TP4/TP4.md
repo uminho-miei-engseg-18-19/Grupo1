@@ -50,16 +50,18 @@ Relativamente ao _blurring_ trata-se de uma técnica que utiliza uma aproximaç�
 
 #### Pergunta P1.3
 
-1. Para avaliar se um processamento de dados pessoais vai ou não resultar num risco elevado são usados os 9 critérios listados abaixo:
-- Evaluation/Scoring - Inclui avaliação dos perfis e definição de cada um dos aspectos relacionados com os perfis.
-- Automated-decision making with legal or similar significant effect - toma decisões automáticas perante determinadas características do perfil
-- Systematic monitoring - 
-- Sensitive data or data of highly personal nature
-- Data processed on a large scale
-- Matching or combining datasets
-- Data concerning vulnerable data subjects
-- Innovative use or applying new techonological or organisational solutions
-- Improvement recommendations
+**1.** Para avaliar se um processamento de dados pessoais vai ou não resultar num risco elevado são usados os 9 critérios listados abaixo:
+- _Evaluation/Scoring_ - Inclui avaliação dos perfis e definição de cada um dos aspectos relacionados com os perfis.
+- _Automated-decision making with legal or similar significant effect_ - Toma decisões automáticas perante determinadas características do perfil que possam ter efeitos jurídicos.
+- _Systematic monitoring_ - Refere-se ao controlo automático e ao processamento de dados recolhidos através de redes sociais ou em plataformas de acesso público.
+- _Sensitive data or data of highly personal nature_ - Processar informação mais sensível, como opiniões políticas ou algo no âmbito.
+- _Data processed on a large scale_ - Tendo em conta o número de dados a processar, isto é, o volume e o significado que analisá-los pode ter.
+- _Matching or combining datasets_ - Através da inteligência artificial, por exemplo, prever como se comportarão determinados dados semelhantes a outros já processados.
+- _Data concerning vulnerable data subjects_ - Por vezes, o processamento de dados tem de ser feito com consentimento dum titular dos mesmos que pode não ser o sujeito a quem se refere o conjunto de dados, se for um sujeito vulnerável, como crianças, idosos, pessoas com alguma deficiência, etc.
+- _Innovative use or applying new techonological or organisational solutions_ - Se um sistema ou um processamento usar tecnologia inovadora e novas soluções tecnológicas, é necessário recorrer a esta avaliação e cuidado, como reconhecimento facial, etc.
+- _Improvement recommendations_.
+
+**2.** 
 
 [ver](http://www.sec-geral.mec.pt/sites/default/files/recomendacao_003_sgec.pdf)
 
