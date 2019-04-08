@@ -61,7 +61,13 @@ Relativamente ao _blurring_ trata-se de uma técnica que utiliza uma aproximaç�
 - _Innovative use or applying new techonological or organisational solutions_ - Se um sistema ou um processamento usar tecnologia inovadora e novas soluções tecnológicas, é necessário recorrer a esta avaliação e cuidado, como reconhecimento facial, etc.
 - _Improvement recommendations_.
 
-**2.** 
+**2.** Tomemos, a título exemplificativo, um estudo sobre a capacidade financeira dos indivíduos duma sociedade de pedir ou não empréstimos aos bancos, conseguindo assegurar que estes ficam pagos a curto, médio ou longo prazo. Neste caso, a recolha de dados seria absolutamente individualizada, através de plataformas de preenchimento automático, com perguntas diretas, simples, e usada apenas para fins de inquéritos e de análise superficial dos resultados possíveis de obter.
+
+Assim, não seriam obtidos dados relativos ao plafond de uma conta bancária ou dados como o NIF, IBAN, mas sim detalhes, não minunciosos, sobre rendimentos mensais, gastos gerais, se conseguem ou não realizar poupanças ao longo do ano, qual o rendimento familiar, o número do agregado familiar, o tipo de emprego, perspectivas de futuro no atual emprego. Estes dados seriam quase suficientes para ter uma ideia da perspectiva de segurança ao facilitar um empréstimo a alguém por parte dum banco.
+
+A ideia deste processamento assenta no estudo dos rendimentos gerais de uma população para estudo de mercado/finanças duma sociedade para que os bancos tenham uma ideia de como está a situação à sua volta. Isto é, o processamento de dados seria feito em contexto de inquérito/estudo populacional, mas os resultados seriam divulgados a algumas entidades financeiras, entre as quais, bancos do país, sendo todos os inqueridos informados de tal propósito antes de iniciarem as suas respostas.
+
+Neste caso, estaria a ser feito um processamento estatístico automático dos dados, estariam a ser também agrupados os dados por grupos ou faixas que se enquadrem nos mesmo parâmetros, seriam  também processados dados em grande escala e alguns dos dados podem ainda ser considerados sensíveis o suficiente no caso do estudo ser interceptado e seja acessível de alguma forma informação sobre quem os está a introduzir.
 
 [ver](http://www.sec-geral.mec.pt/sites/default/files/recomendacao_003_sgec.pdf)
 
