@@ -14,6 +14,7 @@ No modelo *Microsoft Security Development Lifecycle* o regulamento europeu RGPD 
 
 #### Pergunta P2.3
 
+Comparando as funções e responsabilidades de segurança no SDLC com os projetos de desenvolvimento de software em que temos participado, nota-se que no SDLC as funções e responsabilidades de segurança são bastante específicos para cada *role*. No entanto, nos projetos em que temos participado não se atribuem funções específicas aos membros da equipa, sendo que todos os elementos apresentam as mesmas funções e responsabilidades.
 
 
 ## 3. SAMM (*Software Assurance Maturity Model*)
