@@ -21,7 +21,11 @@ Comparando as funções e responsabilidades de segurança no SDLC com os projeto
 
 #### Pergunta P3.1
 
+Na **Fase Assess do SAMM** classifique-se as seguintes práticas de segurança quanto à sua maturidade:
 
+
+
+Identifique a maturidade de três práticas de segurança (à sua escolha) que utiliza no desenvolvimento do projeto da UC de Engenharia de Segurança (Fase Assess do SAMM)
 
 #### Pergunta P3.2
 
