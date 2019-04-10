@@ -18,3 +18,14 @@ Comparando as funções e responsabilidades de segurança no SDLC com os projeto
 
 
 ## 3. SAMM (*Software Assurance Maturity Model*)
+
+#### Pergunta P3.1
+
+
+
+#### Pergunta P3.2
+
+
+
+#### Pergunta P3.3
+
