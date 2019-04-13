@@ -71,4 +71,6 @@ Num primeiro contacto com a aplicação, o indivíduo teria de responder a umas 
 
 Desta forma, o processamento de dados pessoais satisfaz os critérios de _systematic monitoring_ - monotorização sistemática -, _sensitive data or data of highly personal nature_ - dados sensíveis e de carácter extremamente pessoal - e _matching or combining datasets_ - combinar dados -!
 
+**3.** DPIA template [preenchido](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP4/DPIA%20-%20application.pdf).
+
 #### Pergunta P1.4
