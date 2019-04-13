@@ -61,7 +61,7 @@ Relativamente ao _blurring_ trata-se de uma técnica que utiliza uma aproximaç�
 - _Innovative use or applying new techonological or organisational solutions_ - Se um sistema ou um processamento usar tecnologia inovadora e novas soluções tecnológicas, é necessário recorrer a esta avaliação e cuidado, como reconhecimento facial, etc.
 - _Improvement recommendations_.
 
-**2.** A título exemplificativo e com fim de preencher o relatório DPIA, iremos usar o exmeplo de uma plataforma - ou site, ou aplicação - que, conforme certas preferências de um indíviduo e a sua localização, alerta para quando este se encontra a uma distância relativamente curta de um sítio/local que poderia ser do seu interesse.
+**2.** A título exemplificativo e com fim de preencher o relatório DPIA, iremos usar o exemplo de uma plataforma - ou site, ou aplicação - que, conforme certas preferências de um indíviduo e a sua localização, alerta para quando este se encontra a uma distância relativamente curta de um sítio/local que poderia ser do seu interesse.
 
 Uma vez que estaríamos a lidar com a localização atual do utilizador e com os seus gostos pessoais, seria necessário ter uma forma de fazer login, isto é, exigiria um nome de utilizador e uma palavra passe, assim como associar um email à conta de usuário.
 
