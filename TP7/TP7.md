@@ -22,7 +22,9 @@ Comparando as funções e responsabilidades de segurança no SDLC com os projeto
 #### Pergunta P3.1
 
 Strategy & Metrics - 0.9
+
 Secure Architecture - 1.35
+
 Security Testing - 0.87
 
 #### Pergunta P3.2
