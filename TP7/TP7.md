@@ -35,3 +35,4 @@ Relativamente às práticas de segurança identificadas acima, pretende-se que c
 
 #### Pergunta P3.3
 
+Com o intuito de atingir o nível de maturidade pretendido identificado na pergunta anterior, procedeu-se ao preenchimento da sheet *Roadmap*, que se encontra disponível nesta [diretoria](https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP7/Seccao3).
