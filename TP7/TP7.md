@@ -19,6 +19,8 @@ Comparando as funções e responsabilidades de segurança no SDLC com os projeto
 
 ## 3. SAMM (*Software Assurance Maturity Model*)
 
+A *toolbox* preenchida encontra-se [aqui]().
+
 #### Pergunta P3.1
 
 Strategy & Metrics - 0.9
@@ -29,7 +31,7 @@ Security Testing - 0.87
 
 #### Pergunta P3.2
 
-
+Relativamente às práticas de segurança identificadas acima, pretende-se que cada uma tenha um nível de maturidade 2.
 
 #### Pergunta P3.3
 
