@@ -19,7 +19,7 @@ Comparando as funções e responsabilidades de segurança no SDLC com os projeto
 
 ## 3. SAMM (*Software Assurance Maturity Model*)
 
-A *toolbox* preenchida encontra-se [aqui]().
+A *toolbox* preenchida encontra-se [aqui](https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP7/Seccao3).
 
 #### Pergunta P3.1
 
