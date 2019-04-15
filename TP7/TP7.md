@@ -19,7 +19,7 @@ Comparando as funções e responsabilidades de segurança no SDLC com os projeto
 
 ## 3. SAMM (*Software Assurance Maturity Model*)
 
-A *toolbox* preenchida encontra-se [aqui]().
+A *toolbox* preenchida encontra-se [aqui](https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP7/Seccao3).
 
 #### Pergunta P3.1
 
@@ -35,3 +35,4 @@ Relativamente às práticas de segurança identificadas acima, pretende-se que c
 
 #### Pergunta P3.3
 
+Com o intuito de atingir o nível de maturidade pretendido identificado na pergunta anterior, procedeu-se ao preenchimento da sheet *Roadmap*, que se encontra disponível nesta [diretoria](https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP7/Seccao3).
