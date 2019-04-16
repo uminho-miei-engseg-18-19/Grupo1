@@ -74,3 +74,7 @@ Desta forma, o processamento de dados pessoais satisfaz os critérios de _system
 **3.** DPIA template [preenchido](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP4/DPIA%20-%20application.pdf).
 
 #### Pergunta P1.4
+
+PIA template [preenchido](https://github.com/uminho-miei-engseg-18-19/Grupo1/tree/master/TP4/Pergunta1_4).
+
+*Observação:* O ficheiro encontra-se em formato json, uma vez que não conseguimos fazer a exportação do mesmo em formato pdf.
