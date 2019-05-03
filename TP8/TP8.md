@@ -60,3 +60,22 @@ Analisando o programa verifica-se que este começa por criar um *buffer* de tama
 Quando executamos o programa em Java e em Python este apresenta um comportamento semelhante. Como podemos analisar pelas imagens acima, conclui-se que ao tentar guardar no array mais do que 10 valores, o programa dá erro. No entanto, este comporta-se de forma normal se se quiser inserir valores iguais ou inferiores a 10. Note-se ainda que quando se guardam 10 valores no array e se tenta recuperar um valor na posição 11, por exemplo, o programa dá erro.
 
 Relativamente ao programa C++, se inserir o valor 13 como input o programa fica em modo de espera, os restantes 3 casos são análogos aos respetivos casos nos programas Java e Python. Note-se ainda que, quando se pretendem guardar 10 valores no array e se tenta recuperar o 20º valor, o programa retorna um valor da memória adjacente.
+
+
+#### Pergunta P1.3
+
+![Root](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP8/P1_3/Root.png)
+
+<p align="center">
+  RootExploit
+</p>
+
+No programa RootExploit.c a vulnerabilidade de *Buffer Overflow* está relacionada com o facto do *buffer* criado ter apenas 4 bytes e permitir *inputs* de tamanho maior. Deste modo, para explorar a vulnerabilidade existente basta inserir um *input* com, pelo menos, 5 caracteres.
+
+![0-simple](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP8/P1_3/0-simple.png)
+
+<p align="center">
+  0-simple
+</p>
+
+Relativamente ao programa 0-simple.c, a vulnerabilidade de *Buffer Overflow* está relacionada com o facto do *buffer* criado ter apenas 64 bytes e permitir *inputs* de tamanho maior. Deste modo, para explorar a vulnerabilidade existente, e obter a mensagem "YOU WIN", basta inserir um *input* com, pelo menos, 65 caracteres.
