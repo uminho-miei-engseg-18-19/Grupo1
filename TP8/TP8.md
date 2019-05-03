@@ -79,3 +79,18 @@ No programa RootExploit.c a vulnerabilidade de *Buffer Overflow* está relaciona
 </p>
 
 Relativamente ao programa 0-simple.c, a vulnerabilidade de *Buffer Overflow* está relacionada com o facto do *buffer* criado ter apenas 64 bytes e permitir *inputs* de tamanho maior. Deste modo, para explorar a vulnerabilidade existente, e obter a mensagem "YOU WIN", basta inserir um *input* com, pelo menos, 65 caracteres.
+
+
+#### Pergunta P1.4
+
+Testanto o programa escrito em C ReadOverflow.c, obtém-se os seguintes resultados:
+
+![pergunta1_4](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP8/P1_4.png)
+
+<p align="center">
+  Resultados Obtidos
+</p>
+
+Tendo em conta os resultados acima apresentados, pode concluir-se que o programa executado permite recuperar informação que estava guardada, anteriormente, no *buffer*.
+
+A vulnerabilidade pode ser corrigida se o número de caracteres inseridos como input (*Insira numero de caracteres*) for sempre igual ao número de caracteres que são inseridos no input seguinte (*Insira frase*), para tal o programa apenas tem de verificar essa igualdade.
