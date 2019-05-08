@@ -94,3 +94,8 @@ Testanto o programa escrito em C ReadOverflow.c, obtém-se os seguintes resultad
 Tendo em conta os resultados acima apresentados, pode concluir-se que o programa executado permite recuperar informação que estava guardada, anteriormente, no *buffer*.
 
 A vulnerabilidade pode ser corrigida se o número de caracteres inseridos como input (*Insira numero de caracteres*) for sempre igual ao número de caracteres que são inseridos no input seguinte (*Insira frase*), para tal o programa apenas tem de verificar essa igualdade.
+
+
+#### Pergunta P1.5
+
+Após análise do programa 1-match.c, concluiu-se que para explorar a vulnerabilidade existente usamos o facto do sistema UNIX ser um sitema little-endian e, portanto, o byte menos significativo é colocado no endereço de memória mais baixo. Deste modo, para explorar a vulnerabilidade 
