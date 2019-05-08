@@ -98,4 +98,6 @@ A vulnerabilidade pode ser corrigida se o número de caracteres inseridos como i
 
 #### Pergunta P1.5
 
-Após análise do programa 1-match.c, concluiu-se que para explorar a vulnerabilidade existente usamos o facto do sistema UNIX ser um sitema little-endian e, portanto, o byte menos significativo é colocado no endereço de memória mais baixo. Deste modo, para explorar a vulnerabilidade 
+Após análise do programa 1-match.c, concluiu-se que para explorar a vulnerabilidade existente usamos o facto do sistema UNIX ser um sitema little-endian e, portanto, o byte menos significativo é colocado no endereço de memória mais baixo. Deste modo, para explorar a vulnerabilidade preenchemos a memória do *buffer* com 76 caracteres de 'lixo', acrescentando no final a sequência 'dcba', uma vez que esta sequência corresponde ao valor '64636261' em hexadecimal.
+
+![solução](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP8/P1_5.png)
