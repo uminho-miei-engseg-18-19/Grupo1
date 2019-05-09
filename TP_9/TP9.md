@@ -14,4 +14,7 @@ Utilizando a tautologia 1=1, exacutámos o ataque de _SQL injection_, obtendo, c
 #### Pergunta 1.2 Numeric SQL Injection
 
 Através da ferramenta **Inspector** no Firefox, procurámos as linhas onde estavam as diferentes _stations_, alterando o valor relativo a Columbia para "101 or 1=1".
+
 ![pergunta 1.2](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP_9/pergunta1.2.png)
+
+
