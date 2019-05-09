@@ -101,3 +101,30 @@ A vulnerabilidade pode ser corrigida se o número de caracteres inseridos como i
 Após análise do programa 1-match.c, concluiu-se que para explorar a vulnerabilidade existente usamos o facto do sistema UNIX ser um sitema little-endian e, portanto, o byte menos significativo é colocado no endereço de memória mais baixo. Deste modo, para explorar a vulnerabilidade preenchemos a memória do *buffer* com 76 caracteres de 'lixo', acrescentando no final a sequência 'dcba', uma vez que esta sequência corresponde ao valor '64636261' em hexadecimal.
 
 ![solução](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP8/P1_5.png)
+
+
+## 2. Vulnerabilidade de inteiros
+
+#### Pergunta 2.1
+1. 
+Podemos verificar que a função _malloc_ aloca espaço para um bloco de bytes consecutivos. No caso da função _vulneravel_, é possível ver que o tamanho da memória alocada é _x*y_. No entanto, x e y são variáveis do tipo _size_t_, cujo limite máximo é 18446744073709551615. Assim, caso sejam dados como input valores de x e y cujo produto é superior a este limite máximo, ocorre um **overflow de inteiros**.
+É, então, possível manipular os valores de x e y de forma a que _x*y_ dê um valor baixo, fazendo com que, ao percorrer o ciclo sobre **i** e **j**, tente aceder a posições que estão fora da memória disponível para a matriz.
+
+2.
+![pergunta2_1 alteração do main()](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP8/P2_1/main().png)
+
+3. 
+Ao executar a função _vulneravel_ com as alterações feitas no main(), obtemos o erro _Segmentation fault_.
+![pergunta 2_1 segmentation fault](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP8/P2_1/segmentation%20failed.png)
+
+#### Pergunta 2.2
+1.
+No caso do programa **underflow**, a vulnerabilidade da função _variavel()_ reside no input que é dado à variável _tamanho_.
+Este programa permite que seja atribuído à variável _tamanho_ o valor 0 e, tendo em conta que a variável _tamanho_real = tamanho - 1_, é assumido o valor -1 pela variável _tamanho_real_, ocorrendo assim **underflow de inteiros**, uma vez que _tamanho_real_ é do tipo _size_t_ e só devia assumir valores maiores que 0.
+
+2.
+![pergunta2_2 main()](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP8/P2_1/main()2.png)
+
+3.
+Com base na vulnerabilidade acima descrita, o erro _Segmentation fault_ ocorre, pois estamos a tentar alocar a variável _destino_ em tamanho -1.
+![pergunta2_2 segmentation fault](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP8/P2_1/Seg%20fault%202.png)
