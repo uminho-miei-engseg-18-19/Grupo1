@@ -115,6 +115,7 @@ Podemos verificar que a função _malloc_ aloca espaço para um bloco de bytes c
 
 3. 
 Ao executar a função _vulneravel_ com as alterações feitas no main(), obtemos o erro _Segmentation fault_.
+
 ![pergunta 2_1 segmentation fault](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP8/P2_1/segmentation%20failed.png)
 
 #### Pergunta 2.2
@@ -127,4 +128,5 @@ Este programa permite que seja atribuído à variável _tamanho_ o valor 0 e, te
 
 3.
 Com base na vulnerabilidade acima descrita, o erro _Segmentation fault_ ocorre, pois estamos a tentar alocar a variável _destino_ em tamanho -1.
+
 ![pergunta2_2 segmentation fault](https://github.com/uminho-miei-engseg-18-19/Grupo1/blob/master/TP8/P2_1/Seg%20fault%202.png)
